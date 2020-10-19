@@ -905,13 +905,17 @@ SELECT|sys.sys_config:null
 </ObjectGrants>
     </user>
     <table id="283" parent="3" name="mydb"/>
-    <column id="284" parent="283" name="name">
+    <column id="284" parent="283" name="first_name">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
     <column id="285" parent="283" name="age">
       <Position>2</Position>
       <DataType>int|0s</DataType>
+    </column>
+    <column id="286" parent="283" name="second_name">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
     </column>
   </database-model>
 </dataSource>

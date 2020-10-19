@@ -7,13 +7,17 @@
     <body>
         <table>
             <thread>
-                <th>Name</th>
+                <th>First name</th>
+                <th>Second name</th>
+
                 <th>Age</th>
             </thread>
             {{range .}}
 
             <tr>
-                <td>{{.Name}}</td>
+                <td>{{.FirstName}}</td>
+                <td>{{.SecondName}}</td>
+
                 <td>{{.Age}}</td>
 
             </tr>
