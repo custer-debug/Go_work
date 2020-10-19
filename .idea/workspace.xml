@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="ProjectId" id="1j60gXhuYudF4aAjl2V8PSVgcOx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="debugger.dataViews" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="Go_work" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/server.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603112843589">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603112843589" />
+    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603109409293">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603109409293" />
+    <state width="1819" height="157" key="GridCell.Tab.0.bottom" timestamp="1603120956221">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="157" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
+    <state width="1819" height="157" key="GridCell.Tab.0.center" timestamp="1603120956221">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="157" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
+    <state width="1819" height="157" key="GridCell.Tab.0.left" timestamp="1603120956221">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="157" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
+    <state width="1819" height="157" key="GridCell.Tab.0.right" timestamp="1603120956221">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="157" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
+    <state width="209" height="456" key="HiddenNamespacesPopup" timestamp="1603109725836">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="209" height="456" key="HiddenNamespacesPopup/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603109725836" />
+    <state x="492" y="186" key="SettingsEditor" timestamp="1603112582657">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="492" y="186" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603112582657" />
+  </component>
+</project>
