@@ -31,7 +31,7 @@ func menu(w http.ResponseWriter, r *http.Request) {
 		login := r.FormValue("login")
 		Password := r.FormValue("pass")
 		u := User{}
-		rows := database.QueryRow("select * from owndata where login = ? and password = ?;", login, Password)
+		rows := database.QueryRow("select * from dataofusers where login = ? and password = ?;", login, Password)
 
 		rows.Scan(&u.ID,&u.FirstName, &u.LastName,&u.Age,&u.Login,&u.Login)
 
@@ -47,14 +47,24 @@ func menu(w http.ResponseWriter, r *http.Request) {
 				http.Redirect(w,r,"/",301)
 			}
 
-
-
 	}else{
 		http.ServeFile(w, r, "html/menu.html")
 	}
 
 
 }
+
+func CreateUserHandler(w http.ResponseWriter, r *http.Request){//создание пользователя 
+	if r.Method == "POST"{
+
+	}else{
+		http.ServeFile(w, r, "html/create.html")
+	}
+
+
+}
+
+
 
 
 func main() {
@@ -69,6 +79,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/",menu)
+	router.HandleFunc("/create/",CreateUserHandler)
 
 	http.Handle("/",router)
 

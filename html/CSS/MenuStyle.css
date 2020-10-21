@@ -1,0 +1,85 @@
+body {
+    margin-left: 750px;
+    margin-top: 380px;
+
+    background-color: #252525;
+    
+}
+
+.title {
+    color: darkorange;
+    font-size: 40px;
+    font-family: monospace;
+
+}
+.input1 {
+    position: absolute;
+    top: 430px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+}
+
+.input2 {
+    position: absolute;
+    top: 470px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+    font-size: 14px;
+}
+
+.mainbuttom {
+    position: absolute;
+    top: 510px;
+    height: 30px;
+    width:  80px;
+    background-color: rgba(0, 48, 71, 0.75);
+    color:darkgoldenrod;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.link {
+    position: absolute;
+    left: 840px;
+    top: 512px;
+    height: 20px;
+    width: 100px;
+    font-size: 20px;
+   color:dimgrey;
+    
+}
+.DownMenu {
+    background-color: beige;
+    position: absolute;
+    left: 0px;
+    top:850px;
+    width: 1858px;
+    height: 127px;
+    background: -webkit-linear-gradient(top, #ffffff 0%,dimgrey 10%,#d1d1d1 30%,#000000 100%);
+    
+    
+}
+
+.UpperMenu{
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    height: 80px;
+    width: 1778px;
+    background-color: black;
+    
+}
+
+.Packy {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+
