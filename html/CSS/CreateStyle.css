@@ -13,41 +13,44 @@ body {
 
 .UpperMenu{
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 80px;
     height: 80px;
     width: 1778px;
-    background-color: black;
+    background-color: #000000;
     
 }
 .Packy {
     position: absolute;
-    top: 0px;
+    top: 0;
     left: -80px;
 
 }
 
 .NameInputText {
     color:#aaaaaa; 
+    
     font-size:23px;
     font-stretch: expanded;
     
 }
 
-.FeildCreate1 {
+.FieldCreate1 {
     position: absolute;
-    top: 203px;
+    top: 200px;
     left: 820px;
     background-color: black;
+    color:aliceblue;
+    font-size: 15px ;
     height: 25px;
     width: 250px;
     border-radius: 30px;
     border-style: solid;
     
 }
-.FeildCreate2 {
+.FieldCreate2 {
     position: absolute;
-    top: 253px;
+    top: 250px;
     left: 820px;
     background-color: black;
     height: 25px;
@@ -55,9 +58,9 @@ body {
     border-radius: 30px;
     border-style: solid;
 }
-.FeildCreate3 {
+.FieldCreate3 {
     position: absolute;
-    top: 303px;
+    top: 300px;
     left: 820px;
     background-color: black;
     height: 25px;
@@ -65,9 +68,9 @@ body {
     border-radius: 30px;
     border-style: solid;
 }
-.FeildCreate4 {
+.FieldCreate4 {
     position: absolute;
-    top: 353px;
+    top: 350px;
     left: 820px;
     background-color: black;
     height: 25px;
@@ -75,9 +78,9 @@ body {
     border-radius: 30px;
     border-style: solid;
 }
-.FeildCreate5 {
+.FieldCreate5 {
     position: absolute;
-    top: 403px;
+    top: 400px;
     left: 820px;
     background-color: black;
     height: 25px;
@@ -101,7 +104,7 @@ body {
 .DownMenu {
     background-color: beige;
     position: absolute;
-    left: 0px;
+    left: 0;
     top:850px;
     width: 1858px;
     height: 127px;
