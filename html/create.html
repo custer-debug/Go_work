@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href ="CSS/CreateStyle.css">
-    <title>Register</title>
+    <link rel = "icon" href="images/packy_ico.ico">
+    
+    <title>Registration</title>
 </head>
     <body>
-    
-        <h2>Enter your data</h2>
+        
+        <h2 class = "MainText">Enter your data</h2>
         <form method="POST">
-        <label>
-            Name
-            <input type = "text" name = "firstname" required placeholder="Your name"><p>
-            Surname
-            <input type = "text" name = "lastname" required placeholder="Your surname"><p>
+        <label class = "NameInputText">
+            First Name
+            <input type = "text" name = "firstname" required placeholder="Your name" class = "FeildCreate1"><br><br>
+            Last Name
+            <input type = "text" name = "lastname" required placeholder="Your surname" class = "FeildCreate2"><br><br>
             Age
-            <input type = "number" name = "age"><p>
+            <input type = "number" name = "age" placeholder="Your age" class = "FeildCreate3"><br><br>
             login
-            <input type = "text" name = "lastname" required placeholder="Enter login"><p>
+            <input type = "text" name = "login" required placeholder="Enter login" class = "FeildCreate4"><br><br>
             Password
-            <input type = "text" name = "lastname" required placeholder="Enter password"><p>
+            <input type = "text" name = "password" required placeholder="Enter password" class = "FeildCreate5">
 
         </label>
-        </form>
-    <input type = "submit" value = "Create">
-
-
+        </form><br>
+    <input type = "submit" value = "Create" class = "mainbuttom">
+        <div class="DownMenu">
+        
+        </div>
+        <div class="UpperMenu">
+            <img src="images/packy_logo.png" width="80" class = "Packy">
+        </div>
     </body>
 </html>

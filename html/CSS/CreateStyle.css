@@ -1,0 +1,137 @@
+body {
+    background-color: #252525; 
+    margin-left: 700px;
+    margin-top: 100px;
+}
+
+.MainText {
+    color: darkorange;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-stretch: expanded;
+}
+
+.UpperMenu{
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    height: 80px;
+    width: 1778px;
+    background-color: black;
+    
+}
+.Packy {
+    position: absolute;
+    top: 0px;
+    left: -80px;
+
+}
+
+.NameInputText {
+    color:#aaaaaa; 
+    font-size:23px;
+    font-stretch: expanded;
+    
+}
+
+.FeildCreate1 {
+    position: absolute;
+    top: 203px;
+    left: 820px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+    
+}
+.FeildCreate2 {
+    position: absolute;
+    top: 253px;
+    left: 820px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+}
+.FeildCreate3 {
+    position: absolute;
+    top: 303px;
+    left: 820px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+}
+.FeildCreate4 {
+    position: absolute;
+    top: 353px;
+    left: 820px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+}
+.FeildCreate5 {
+    position: absolute;
+    top: 403px;
+    left: 820px;
+    background-color: black;
+    height: 25px;
+    width: 250px;
+    border-radius: 30px;
+    border-style: solid;
+}
+
+.mainbuttom {
+    position: absolute;
+    top: 460px;
+    left: 840px;
+    height: 35px;
+    width:  120px;
+    background-color: rgba(0, 48, 71, 0.75);
+    color:darkgoldenrod;
+    border-radius: 30px;
+    font-size: 17px;
+}
+
+.DownMenu {
+    background-color: beige;
+    position: absolute;
+    left: 0px;
+    top:850px;
+    width: 1858px;
+    height: 127px;
+    background: -webkit-linear-gradient(top, #ffffff 0%,dimgrey 0%,#d1d1d1 0%,#000000 95%);
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
