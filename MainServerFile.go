@@ -41,6 +41,7 @@ func menu(w http.ResponseWriter, r *http.Request) {
 					u.FirstName, u.LastName)
 
 				tmpl, _ := template.ParseFiles("html/template.html")
+				
 				tmpl.Execute(w,u)
 			}else{
 				http.Redirect(w,r,"/",301)
@@ -54,8 +55,6 @@ func menu(w http.ResponseWriter, r *http.Request) {
 
 
 }
-
-
 
 
 func main() {
