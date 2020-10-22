@@ -4,24 +4,20 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
 )
 
-
-type User struct{
-	ID int
+type User struct {
+	ID        int
 	FirstName string
-	LastName string
-	Age int
-	Login string
-	Password string
+	LastName  string
+	Age       int
+	Login     string
+	Password  string
 }
 
-
 var database *sql.DB
-
 
 func menu(w http.ResponseWriter, r *http.Request) {
 
@@ -33,42 +29,36 @@ func menu(w http.ResponseWriter, r *http.Request) {
 		u := User{}
 		rows := database.QueryRow("select * from dataofusers where login = ? and password = ?;", login, Password)
 
-		rows.Scan(&u.ID,&u.FirstName, &u.LastName,&u.Age,&u.Login,&u.Login)
+		rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Login)
 
+		if len(u.FirstName) > 0 && len(u.LastName) > 0 {
+			fmt.Printf("First Name:\t%s\nLast Name:\t%s\n",
+				u.FirstName, u.LastName)
 
-			if len(u.FirstName) > 0 && len(u.LastName) > 0{
-				fmt.Printf("First Name:\t%s\nLast Name:\t%s\n",
-					u.FirstName, u.LastName)
+			tmpl, _ := template.ParseFiles("html/template.html")
 
-				tmpl, _ := template.ParseFiles("html/template.html")
-				
-				tmpl.Execute(w,u)
-			}else{
-				http.Redirect(w,r,"/",301)
-			}
+			tmpl.Execute(w, u)
+		} else {
+			http.Redirect(w, r, "/", 301)
+		}
 
-	}else{
+	} else {
 		http.ServeFile(w, r, "html/menu.html")
 	}
 
-
 }
 
-func CreateUserHandler(w http.ResponseWriter, r *http.Request){//создание пользователя 
-	if r.Method == "POST"{
+func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создание пользователя
+	if r.Method == "POST" {
 
-	}else{
+	} else {
 		http.ServeFile(w, r, "html/create.html")
 	}
 
-
 }
 
-
-
-
 func main() {
-	db, err := sql.Open("mysql","root:Systemofadown2011@tcp(:8080)/user")
+	db, err := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -77,14 +67,12 @@ func main() {
 	database = db
 	defer db.Close()
 
-	router := mux.NewRouter()
-	router.HandleFunc("/",menu)
-	router.HandleFunc("/create/",CreateUserHandler)
+	http.HandleFunc("/", menu)
+	http.HandleFunc("/create/", CreateUserHandler)
 
-	http.Handle("/",router)
+	http.Handle("/CSS/", http.StripPrefix("/CSS/", http.FileServer(http.Dir("./CSS/"))))
 
 	fmt.Println("Server is listening...")
-	http.ListenAndServe(":8181",nil)
-
+	http.ListenAndServe(":8181", nil)
 
 }

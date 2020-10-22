@@ -62,20 +62,19 @@ body {
     
 }
 .DownMenu {
-    background-color: beige;
     position: absolute;
-    left: 0px;
+    left: 0;
     top:850px;
     width: 1858px;
     height: 127px;
-    background: -webkit-linear-gradient(top, #ffffff 0%,dimgrey 0%,#d1d1d1 0%,#000000 95%);
-    
-    
+    background: beige -webkit-linear-gradient(top, #ffffff 0%, dimgrey 0%, #d1d1d1 0%, #000000 95%);
+
+
 }
 
 .UpperMenu{
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 80px;
     height: 80px;
     width: 1778px;
@@ -85,8 +84,8 @@ body {
 
 .Packy {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
 

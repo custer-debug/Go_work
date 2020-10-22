@@ -21,10 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SendQuery/SendQuery.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/CSS/CreateStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/CSS/CreateStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/CSS/MenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/CSS/MenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainServerFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/MainServerFile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/CSS/CreateStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/CreateStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/CSS/MenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/MenuStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/images/packy_ico.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/packy_ico.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/images/packy_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/packy_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +65,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\romak\Desktop\Github\Go_work\html" />
-      <recent name="C:\Users\romak\Desktop\Github\Go_work\SendQuery" />
-      <recent name="C:\Users\romak\Desktop\Github\Go_work\HTMLDir" />
       <recent name="C:\Users\romak\Desktop\Github\Go_work" />
-      <recent name="C:\Users\romak\Desktop\Github\Go_work\CreateHandler" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\html\CSS" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\html" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\images" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\html\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -106,25 +108,25 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603127939333" />
-    <state width="1819" height="129" key="GridCell.Tab.0.bottom" timestamp="1603317181614">
+    <state width="1819" height="129" key="GridCell.Tab.0.bottom" timestamp="1603403926273">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="129" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603317181614" />
+    <state width="1819" height="129" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603403926273" />
     <state width="1819" height="221" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603182308993" />
-    <state width="1819" height="129" key="GridCell.Tab.0.center" timestamp="1603317181613">
+    <state width="1819" height="129" key="GridCell.Tab.0.center" timestamp="1603403926273">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="129" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603317181613" />
+    <state width="1819" height="129" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603403926273" />
     <state width="1819" height="221" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603182308993" />
-    <state width="1819" height="129" key="GridCell.Tab.0.left" timestamp="1603317181613">
+    <state width="1819" height="129" key="GridCell.Tab.0.left" timestamp="1603403926273">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="129" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603317181613" />
+    <state width="1819" height="129" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603403926273" />
     <state width="1819" height="221" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603182308992" />
-    <state width="1819" height="129" key="GridCell.Tab.0.right" timestamp="1603317181614">
+    <state width="1819" height="129" key="GridCell.Tab.0.right" timestamp="1603403926273">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="129" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603317181614" />
+    <state width="1819" height="129" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603403926273" />
     <state width="1819" height="221" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603182308993" />
     <state width="1819" height="364" key="GridCell.Tab.1.bottom" timestamp="1603221175029">
       <screen x="62" y="0" width="1858" height="1080" />
