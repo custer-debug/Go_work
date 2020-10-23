@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>Successful</title>
-
+    <head >
+        <meta charset="UTF-8">
+        <title>Welcome</title>
+        <link href = "../CSS/SuccessfullEnter.css" type="text/css" rel = "stylesheet">
+        <link rel = "icon" href="/CSS/images/packy_ico.ico">
+        
     </head>
     <body>
-        <table>
-            <thread>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Age</th>
-            </thread>
-
-            <tr>
-
-                <td>{{.FirstName}}</td>
-                <td>{{.LastName}}</td>
-                <td>{{.Age}}</td>
-
-            </tr>
-
-
-        </table>
+        
+        {{.FirstName}}
+        {{.LastName}}
+        {{.Age}}
+        
     </body>
 </html>
