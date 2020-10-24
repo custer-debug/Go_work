@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="" />
+    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="Обновлён интерфес страниц авторизации и регистрации">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainServerFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/MainServerFile.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,34 +32,49 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="HTML File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
   <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1j60gXhuYudF4aAjl2V8PSVgcOx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="debugger.dataViews" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\CSS" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\html\CSS" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\html" />
+      <recent name="C:\Users\romak\Desktop\Github\Go_work\images" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="go build server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+    <configuration name="go build MainServerFile.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Go_work" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/server.go" />
+      <filePath value="$PROJECT_DIR$/MainServerFile.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -46,38 +83,98 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавлены стили при заходе на главную страницу при запуске сервера" />
+    <MESSAGE value="Добавлено создание пользователя" />
+    <MESSAGE value="Обновлён интерфес страниц авторизации и регистрации" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновлён интерфес страниц авторизации и регистрации" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603112843589">
+    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603274320603">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603112843589" />
-    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603109409293">
+    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603274320603" />
+    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603127939333">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603109409293" />
-    <state width="1819" height="157" key="GridCell.Tab.0.bottom" timestamp="1603120956221">
+    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603127939333" />
+    <state width="1819" height="129" key="GridCell.Tab.0.bottom" timestamp="1603569684397">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="157" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
-    <state width="1819" height="157" key="GridCell.Tab.0.center" timestamp="1603120956221">
+    <state width="1819" height="129" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603464395291" />
+    <state width="1819" height="129" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603569684397" />
+    <state width="1819" height="129" key="GridCell.Tab.0.center" timestamp="1603569684397">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="157" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
-    <state width="1819" height="157" key="GridCell.Tab.0.left" timestamp="1603120956221">
+    <state width="1819" height="129" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603464395291" />
+    <state width="1819" height="129" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603569684397" />
+    <state width="1819" height="129" key="GridCell.Tab.0.left" timestamp="1603569684397">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="157" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
-    <state width="1819" height="157" key="GridCell.Tab.0.right" timestamp="1603120956221">
+    <state width="1819" height="129" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603464395291" />
+    <state width="1819" height="129" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603569684397" />
+    <state width="1819" height="129" key="GridCell.Tab.0.right" timestamp="1603569684397">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="157" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603120956221" />
+    <state width="1819" height="129" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603464395291" />
+    <state width="1819" height="129" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603569684397" />
+    <state width="1819" height="364" key="GridCell.Tab.1.bottom" timestamp="1603221175029">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="364" key="GridCell.Tab.1.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
+    <state width="1819" height="364" key="GridCell.Tab.1.center" timestamp="1603221175029">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="364" key="GridCell.Tab.1.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
+    <state width="1819" height="364" key="GridCell.Tab.1.left" timestamp="1603221175029">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="364" key="GridCell.Tab.1.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
+    <state width="1819" height="364" key="GridCell.Tab.1.right" timestamp="1603221175029">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1819" height="364" key="GridCell.Tab.1.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
     <state width="209" height="456" key="HiddenNamespacesPopup" timestamp="1603109725836">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="209" height="456" key="HiddenNamespacesPopup/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603109725836" />
-    <state x="492" y="186" key="SettingsEditor" timestamp="1603112582657">
+    <state x="492" y="186" key="SettingsEditor" timestamp="1603127946393">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="492" y="186" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603112582657" />
+    <state x="492" y="186" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603127946393" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1603569560757">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603464175252" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1603569560757" />
+    <state x="890" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1603273945276">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="890" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603273945276" />
+    <state x="889" y="427" width="323" height="255" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1603273897283">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="889" y="427" width="323" height="255" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603273897283" />
+    <state x="779" y="365" width="423" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603126241573">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="779" y="365" width="423" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1603126241573" />
+    <state x="583" y="228" width="689" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603274515737">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="583" y="228" width="689" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603274515737" />
+    <state x="834" y="243" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1603126284263" />
   </component>
 </project>
