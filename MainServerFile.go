@@ -22,7 +22,7 @@ var database *sql.DB
 
 func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создание пользователя
 	if r.Method == "POST" {
-		r.ParseForm()
+		_ = r.ParseForm()
 
 		firstname := r.FormValue("firstname")
 		lastname := r.FormValue("lastname")
@@ -47,13 +47,13 @@ func MainPageOfServer(w http.ResponseWriter, r *http.Request) { //
 
 	if r.Method == "POST" {
 
-		r.ParseForm()
+		_ = r.ParseForm()
 		login := r.FormValue("login")
 		Password := r.FormValue("pass")
 		u := User{}
 		rows := database.QueryRow("select * from dataofusers where login = ? and password = ?;", login, Password)
 
-		rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Login)
+		_ = rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Login)
 
 		if len(u.FirstName) > 0 && len(u.LastName) > 0 {
 			fmt.Printf("First Name:\t%s\nLast Name:\t%s\n",
@@ -61,7 +61,7 @@ func MainPageOfServer(w http.ResponseWriter, r *http.Request) { //
 
 			tmpl, _ := template.ParseFiles("html/template.html")
 
-			tmpl.Execute(w, u)
+			_ = tmpl.Execute(w, u)
 		} else {
 			http.Redirect(w, r, "/", 301)
 		}
