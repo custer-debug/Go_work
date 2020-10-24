@@ -2,36 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../CSS/MenuStyle.css" type="text/css" rel="stylesheet" />
-    <link rel = "icon" href="/CSS/images/packy_ico.ico">
+    <link href="../CSS/bootstrap.css" type="text/css" rel="stylesheet">
+    <link rel = "icon" href = "../CSS/images/packy_logo.png">
     <title>Authorization</title>
 </head>
-<body>
-<h2 class = "title">Authorization</h2>
-    
-<form method="POST">
 
-    <label>
-        <input type = "text" size = "20" required placeholder = "Enter login" name = "login" class="input1">
-    </label><br><br>
-
-    <label>
-        <input type = "password" size = "20" required placeholder = "Enter password" name = "pass" class="input2">
-    </label><br><br>
-
-    <input  type="submit" value="Submit" class ="mainbuttom">
-<a href="/create/" class = "link">Registration</a>
+<body >
    
-</form>
-    <div class="DownMenu">
-        
-    </div>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="#" style = "margin-left: 10px; margin-top: 5px">
+           <h5>
+           Packy
+           </h5>
+       </a>
+      
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Documentation</a>
+          </li>
+        </ul>
+     
+      </div>
+    </nav>
+    
+    <form method="POST"  class = "container" >
+        <div class = "bg-light">
+                <div class="row justify-content-around " >
+                    <div class="col-sm-3 card bg-light" style = "margin:15%" >
+                        <p class = "h2"> Authorization</p>
 
-    <img src="../CSS/images/packy_logo.png" width="80" class = "Packy" alt=""/>
+                        <label for = "login" >Login</label>
 
-    <div class="UpperMenu">
-        
-    </div>
+                            <input type = "email" id = "login"  required placeholder = "Enter login" name = "login" class = "form-control" style ="width: 250px">    
+                            <label for = "password">Password</label>
+                            <input type = "password" id = "password" required placeholder = "Enter password" name = "pass" class = "form-control" style ="width: 250px"><br>
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        <a href="/create/" >Registration</a>
 
+                    </div>
+                </div>
+        </div>
+    <hr>
+
+
+    </form>
+           
+ 
 </body>
 </html>
