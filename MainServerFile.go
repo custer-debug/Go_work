@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
@@ -21,7 +22,8 @@ type User struct {
 var database *sql.DB
 var GlobalUser = new(User)
 
-func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создание пользователя
+//Функция которая отвечает за создание пользователя и запись в БД, полученных со страницы данных
+func CreateUserHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		_ = r.ParseForm()
 
@@ -32,11 +34,13 @@ func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создан�
 		password := r.FormValue("password")
 
 		fmt.Printf("Name:%s\nSurname:%s\n", firstname, lastname)
-		_, err := database.Exec("insert into user.dataofusers (firstname, lastname, age, login, password) values (?,?,?,?,?)", firstname, lastname, age, login, password)
+		var _, err = database.Exec(
+			"insert into user.dataofusers (firstname, lastname, age, login, password) values (?,?,?,?,?)",
+			firstname, lastname, age, login, password)
 		if err != nil {
 			log.Println(err)
 		}
-		http.Redirect(w, r, "/", 301)
+		http.Redirect(w, r, "/auth/", 301)
 	} else {
 
 		http.ServeFile(w, r, "html/PageRegister.html")
@@ -44,7 +48,14 @@ func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создан�
 
 }
 
-func MainPageOfServer(w http.ResponseWriter, r *http.Request) {
+//Главная страница, которая открывается после авторизации и при нажатии на значок Packy
+func MainPage(w http.ResponseWriter, _ *http.Request) {
+	tmpl, _ := template.ParseFiles("html/SuccessfullEnter.html")
+	_ = tmpl.Execute(w, GlobalUser)
+}
+
+//Функция которая отвечает за вход
+func LoginFunc(w http.ResponseWriter, r *http.Request) {
 	var u = new(User)
 
 	if r.Method == "POST" {
@@ -52,7 +63,6 @@ func MainPageOfServer(w http.ResponseWriter, r *http.Request) {
 		_ = r.ParseForm()
 		login := r.FormValue("login")
 		Password := r.FormValue("pass")
-
 		rows := database.QueryRow("select * from dataofusers where login = ? and password = ?;", login, Password)
 
 		_ = rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Password)
@@ -61,15 +71,12 @@ func MainPageOfServer(w http.ResponseWriter, r *http.Request) {
 			fmt.Printf("First Name:\t%s\nLast Name:\t%s\n",
 				u.FirstName, u.LastName)
 
-			tmpl, _ := template.ParseFiles("html/SuccessfullEnter.html")
-
-			_ = tmpl.Execute(w, u)
+			http.Redirect(w, r, "/main_page/", 301)
 			u = nil
 		} else {
 
 			http.Redirect(w, r, "/auth/", 301)
 		}
-
 	} else {
 
 		http.ServeFile(w, r, "html/PageAut.html")
@@ -77,6 +84,7 @@ func MainPageOfServer(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//Функция которая отвечает за редактирование данных из БД
 func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
@@ -86,10 +94,7 @@ func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
 		tmpl, _ := template.ParseFiles("html/Settings.html")
 		_ = tmpl.Execute(w, GlobalUser)
 	}
-
 }
-
-//Настройки
 
 func main() {
 	db, err := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
@@ -101,11 +106,15 @@ func main() {
 	database = db
 	defer db.Close()
 
-	http.HandleFunc("/auth/", MainPageOfServer)
-	http.HandleFunc("/create/", CreateUserHandler)
-	http.HandleFunc("/settings/", SettingHandleFunc)
+	router := mux.NewRouter()
+	router.HandleFunc("/auth/", LoginFunc)
+	router.HandleFunc("/create/", CreateUserHandler)
+	router.HandleFunc("/settings/", SettingHandleFunc)
+	router.HandleFunc("/main_page/", MainPage)
 
+	http.Handle("/", router)
 	http.Handle("/CSS/", http.StripPrefix("/CSS/", http.FileServer(http.Dir("./CSS/"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./js/"))))
 
 	fmt.Println("Server is listening...")
 	http.ListenAndServe(":8181", nil)
