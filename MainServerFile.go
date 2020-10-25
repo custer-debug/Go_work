@@ -84,12 +84,27 @@ func LoginFunc(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func LogoutFunc(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/auth/", 301)
+	GlobalUser = nil
+}
+
 //Функция которая отвечает за редактирование данных из БД
 func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
 		_ = r.ParseForm()
+		fmt.Printf("Name:%s\nSurname:%s\n", r.FormValue("NewName"), r.FormValue("NewSurname"))
+		GlobalUser.FirstName = r.FormValue("NewName")
+		GlobalUser.LastName = r.FormValue("NewSurname")
 
+		var _, err = database.Exec(
+			"update dataofusers set firstname = ?, lastname = ? where id = ?",
+			GlobalUser.FirstName, GlobalUser.LastName, GlobalUser.ID)
+		if err != nil {
+			log.Println(err)
+		}
+		http.Redirect(w, r, "/main_page/", 301)
 	} else {
 		tmpl, _ := template.ParseFiles("html/Settings.html")
 		_ = tmpl.Execute(w, GlobalUser)
@@ -108,6 +123,8 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/auth/", LoginFunc)
+	router.HandleFunc("/logout/", LogoutFunc)
+
 	router.HandleFunc("/create/", CreateUserHandler)
 	router.HandleFunc("/settings/", SettingHandleFunc)
 	router.HandleFunc("/main_page/", MainPage)
