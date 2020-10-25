@@ -19,6 +19,7 @@ type User struct {
 }
 
 var database *sql.DB
+var GlobalUser = new(User)
 
 func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создание пользователя
 	if r.Method == "POST" {
@@ -38,39 +39,57 @@ func CreateUserHandler(w http.ResponseWriter, r *http.Request) { //создан�
 		http.Redirect(w, r, "/", 301)
 	} else {
 
-		http.ServeFile(w, r, "html/create.html")
+		http.ServeFile(w, r, "html/PageRegister.html")
 	}
 
 }
 
-func MainPageOfServer(w http.ResponseWriter, r *http.Request) { //
+func MainPageOfServer(w http.ResponseWriter, r *http.Request) {
+	var u = new(User)
 
 	if r.Method == "POST" {
 
 		_ = r.ParseForm()
 		login := r.FormValue("login")
 		Password := r.FormValue("pass")
-		u := User{}
+
 		rows := database.QueryRow("select * from dataofusers where login = ? and password = ?;", login, Password)
 
-		_ = rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Login)
-
+		_ = rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Age, &u.Login, &u.Password)
+		GlobalUser = u
 		if len(u.FirstName) > 0 && len(u.LastName) > 0 {
 			fmt.Printf("First Name:\t%s\nLast Name:\t%s\n",
 				u.FirstName, u.LastName)
 
-			tmpl, _ := template.ParseFiles("html/template.html")
+			tmpl, _ := template.ParseFiles("html/SuccessfullEnter.html")
 
 			_ = tmpl.Execute(w, u)
+			u = nil
 		} else {
-			http.Redirect(w, r, "/", 301)
+
+			http.Redirect(w, r, "/auth/", 301)
 		}
 
 	} else {
-		http.ServeFile(w, r, "html/menu.html")
+
+		http.ServeFile(w, r, "html/PageAut.html")
 	}
 
 }
+
+func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method == "POST" {
+		_ = r.ParseForm()
+
+	} else {
+		tmpl, _ := template.ParseFiles("html/Settings.html")
+		_ = tmpl.Execute(w, GlobalUser)
+	}
+
+}
+
+//Настройки
 
 func main() {
 	db, err := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
@@ -82,8 +101,9 @@ func main() {
 	database = db
 	defer db.Close()
 
-	http.HandleFunc("/", MainPageOfServer)
+	http.HandleFunc("/auth/", MainPageOfServer)
 	http.HandleFunc("/create/", CreateUserHandler)
+	http.HandleFunc("/settings/", SettingHandleFunc)
 
 	http.Handle("/CSS/", http.StripPrefix("/CSS/", http.FileServer(http.Dir("./CSS/"))))
 
