@@ -93,18 +93,36 @@ func LogoutFunc(w http.ResponseWriter, r *http.Request) {
 func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
-		_ = r.ParseForm()
-		fmt.Printf("Name:%s\nSurname:%s\n", r.FormValue("NewName"), r.FormValue("NewSurname"))
-		GlobalUser.FirstName = r.FormValue("NewName")
-		GlobalUser.LastName = r.FormValue("NewSurname")
 
-		var _, err = database.Exec(
-			"update dataofusers set firstname = ?, lastname = ? where id = ?",
-			GlobalUser.FirstName, GlobalUser.LastName, GlobalUser.ID)
-		if err != nil {
-			log.Println(err)
+		if len(r.FormValue("delete")) != 0 {
+
+			var _, err = database.Exec(
+				"DELETE FROM dataofusers WHERE ID = ? and firstname = ? and lastname = ?",
+				GlobalUser.ID, GlobalUser.FirstName, GlobalUser.LastName)
+
+			if err != nil {
+				log.Println(err)
+			}
+			fmt.Printf("Delete user:%s %s\n", GlobalUser.FirstName, GlobalUser.LastName)
+			LogoutFunc(w, r)
+			GlobalUser = nil
+
+		} else {
+			fmt.Printf("Name:\t%s -> %s\n", GlobalUser.FirstName, r.FormValue("NewName"))
+			fmt.Printf("Name:\t%s -> %s\n", GlobalUser.LastName, r.FormValue("NewSurname"))
+
+			GlobalUser.FirstName = r.FormValue("NewName")
+			GlobalUser.LastName = r.FormValue("NewSurname")
+
+			var _, err = database.Exec(
+				"update dataofusers set firstname = ?, lastname = ? where id = ?",
+				GlobalUser.FirstName, GlobalUser.LastName, GlobalUser.ID)
+			if err != nil {
+				log.Println(err)
+			}
+			http.Redirect(w, r, "/settings/", 301)
 		}
-		http.Redirect(w, r, "/main_page/", 301)
+
 	} else {
 		tmpl, _ := template.ParseFiles("html/Settings.html")
 		_ = tmpl.Execute(w, GlobalUser)
