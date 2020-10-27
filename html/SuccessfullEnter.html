@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head >
+        <meta charset="UTF-8">
+        <title>Welcome</title>
+        <link href = "../CSS/bootstrap.css" type="text/css" rel = "stylesheet">
+         <link rel = "icon" href = "../CSS/images/packy_logo.png">    
+    </head>
+    <body>
+       
+
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="" style = "margin-left: 10px; margin-top: 5px">
+           <h5>
+           Packy
+           </h5>
+       </a>
+      
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Documentation</a>
+          </li>
+        </ul>
+        <form action = "/settings/">
+             <button class="btn btn-outline-light my-3 my-sm-0" style="margin-right: 10px" type="submit">Settings</button>
+          </form>
+          <form action = "/logout/">
+             <button class="btn btn-danger my-sm-0" style="margin-right: 10px" type="submit">Logout</button>
+          </form>
+      </div>
+    </nav>
+        <div class = "container">
+            <label class = "h3">
+                 Hello, {{.FirstName}}
+        {{.LastName}}!
+            </label>
+        </div>        
+        <script src = "../js/bootstrap.js"> </script>
+    </body>
+</html>

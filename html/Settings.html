@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "../CSS/bootstrap.css">
+   
+        <script src = "../js/PostRequests.js"></script>
+    <title>Settings</title>
+</head>
+
+<body>
+     
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="/main_page/" style = "margin-left: 10px; margin-top: 5px">
+           <h5>
+           Packy
+           </h5>
+       </a>
+      
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          
+        
+          <li class="nav-item">
+            <a class="nav-link" href="#">Documentation</a>
+          </li>
+        </ul>
+          <form action = "/logout/">
+             <button class="btn btn-danger my-sm-0" style="margin-right: 10px" type="submit">Logout</button>
+          </form>
+      </div>
+    </nav>
+    
+    
+    <div class = "container"  >
+        <nav>
+        <div class = "nav nav-tabs" id = "nav-tab" role = "tablist" style = "margin-top: 50px">
+            <a class = "nav-item nav-link active" id = "nav-profile-tab" data-toggle = "tab" href = "#nav-profile" role = "tab" aria-controls="nav-profile" aria-selected ="true">Profile</a>
+            
+            <a class = "nav-item nav-link" id = "private-tab" data-toggle = "tab" href = "#nav-private" role = "tab" aria-controls="nav-private" aria-selected ="false">Private</a>
+            
+          </div>
+        
+        </nav>
+        
+        <div class = "tab-content" id = "nav-tabContent">
+           <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <form method="POST" >
+                    <div class = "row" style = "margin-top: 50px;">
+                        <div class = "col">
+                          Имя
+                           <input type="text" class="form-control" value = "{{.FirstName}}" style = "width: 250px; margin-bottom: 10px" name = "NewName" id = "Name">
+                          Фамилия
+                          <input type="text" class="form-control" value = "{{.LastName}}" style = "width: 250px; margin-bottom: 10px" name = "NewSurname" id = "Surname">
+                        <button class = "btn btn-success" style = "margin-top: 10px" type = "submit">Change</button>
+                        <button class = "btn btn-secondary" style = "margin-top: 10px" type = "Reset">Reset</button>
+
+                        </div>
+                       
+                    </div>
+                      <input class = "btn btn-outline-danger" value = "Delete account"  style = "margin-top: 500px" id = "send">
+                </form> 
+                
+            </div>
+           <div class="tab-pane fade show" id="nav-private" role="tabpanel" aria-labelledby="nav-private-tab">
+               
+            
+            </div>
+        </div>
+
+    </div>
+   
+    <script src = "../js/bootstrap.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
