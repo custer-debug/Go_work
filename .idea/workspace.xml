@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="Добавлено изменение данных профиля">
+    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="Добавлено удаление пользователя с помощью POST-запроса на JS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainServerFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/MainServerFile.go" afterDir="false" />
     </list>
@@ -57,9 +57,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CreateUser.go" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -75,8 +76,9 @@
       <module name="Go_work" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
+      <parameters value="$FileName$ $FileName$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/MainServerFile.go" />
+      <filePath value="$PROJECT_DIR$/MainServerFile.go||$PROJECT_DIR$/LoginLogout.go|$PROJECT_DIR$/CreateUser.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -104,41 +106,50 @@
     <MESSAGE value="Добавлена авторизация и проверка пользователя" />
     <MESSAGE value="Добавлены коментарии. Разделены функции входа и обработки главной страницы" />
     <MESSAGE value="Добавлено изменение данных профиля" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено изменение данных профиля" />
+    <MESSAGE value="Добавлено удаление пользователя с помощью POST-запроса на JS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено удаление пользователя с помощью POST-запроса на JS" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603274320603">
+    <state x="600" y="191" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603792472853">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="600" y="191" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603274320603" />
-    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603127939333">
+    <state x="600" y="191" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792472853" />
+    <state x="926" y="277" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1603791236663">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603127939333" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom" timestamp="1603752047290">
+    <state x="926" y="277" key="#com.intellij.ide.macro.MacrosDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791236663" />
+    <state x="737" y="398" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603792258803">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="737" y="398" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792258803" />
+    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603792467145">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792467145" />
+    <state width="1819" height="177" key="GridCell.Tab.0.bottom" timestamp="1603791840040">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1327" height="95" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752047290" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603739954708" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center" timestamp="1603752047290">
+    <state width="1819" height="177" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
+    <state width="1819" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
+    <state width="1819" height="177" key="GridCell.Tab.0.center" timestamp="1603791840040">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1327" height="95" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752047290" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603739954708" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left" timestamp="1603752047289">
+    <state width="1819" height="177" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
+    <state width="1819" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
+    <state width="1819" height="177" key="GridCell.Tab.0.left" timestamp="1603791840040">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1327" height="95" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752047289" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603739954708" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right" timestamp="1603752047290">
+    <state width="1819" height="177" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
+    <state width="1819" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
+    <state width="1819" height="177" key="GridCell.Tab.0.right" timestamp="1603791840040">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1327" height="95" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752047290" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603739954708" />
+    <state width="1819" height="177" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
+    <state width="1819" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
     <state width="1819" height="364" key="GridCell.Tab.1.bottom" timestamp="1603221175029">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -159,15 +170,15 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="209" height="456" key="HiddenNamespacesPopup/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603109725836" />
-    <state x="492" y="186" key="SettingsEditor" timestamp="1603127946393">
+    <state x="590" y="147" key="SettingsEditor" timestamp="1603792070053">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="492" y="186" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603127946393" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1603651918430">
+    <state x="590" y="147" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792070053" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1603752650216">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="2348" y="194" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603648497944" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603651918430" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752650216" />
     <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1603569560757" />
     <state x="890" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1603273945276">
       <screen x="62" y="0" width="1858" height="1080" />
