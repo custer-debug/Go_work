@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
@@ -18,19 +19,37 @@ type User struct {
 	Password  string
 }
 
-var database *sql.DB
-var GlobalUser = new(User)
+var (
+	database   *sql.DB
+	GlobalUser = new(User)
+	c          = &http.Cookie{
+		Name:   "",
+		Value:  "",
+		MaxAge: -1,
+	}
+	router = mux.NewRouter()
+)
 
 //Главная страница, которая открывается после авторизации и при нажатии на значок Packy
-func MainPage(w http.ResponseWriter, _ *http.Request) {
-	tmpl, _ := template.ParseFiles("html/SuccessfullEnter.html")
-	_ = tmpl.Execute(w, GlobalUser)
+func MainPage(w http.ResponseWriter, r *http.Request) {
+	if CheckCookie(w, r) {
+
+		//fmt.Println("MainPage", c.Value == "Roman")
+		tmpl, _ := template.ParseFiles("html/SuccessfullEnter.html")
+		_ = tmpl.Execute(w, GlobalUser)
+
+	} else {
+		http.Redirect(w, r, "/auth/", 301)
+
+	}
+
 }
 
 //Функция которая отвечает за редактирование данных из БД
 func SettingHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
+		fmt.Println(r.FormValue("logout") == "")
 
 		if len(r.FormValue("delete")) != 0 {
 
@@ -77,16 +96,15 @@ func main() {
 	database = db
 	defer db.Close()
 
-	//var router = mux.NewRouter()
+	router.HandleFunc("/auth/", LoginFuncPost).Methods("POST")
+	router.HandleFunc("/auth/", LoginFuncGet).Methods("GET")
+	router.HandleFunc("/logout/", LogoutFunc).Methods("POST")
 
-	http.HandleFunc("/auth/", LoginFunc)
-	http.HandleFunc("/logout/", LogoutFunc)
+	router.HandleFunc("/create/", CreateUserHandler)
+	router.HandleFunc("/main_page/", MainPage)
+	router.HandleFunc("/settings/", SettingHandleFunc)
 
-	http.HandleFunc("/create/", CreateUserHandler)
-	http.HandleFunc("/settings/", SettingHandleFunc)
-	http.HandleFunc("/main_page/", MainPage)
-
-	//	http.Handle("/", router)
+	http.Handle("/", router)
 	http.Handle("/CSS/", http.StripPrefix("/CSS/", http.FileServer(http.Dir("./CSS/"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./js/"))))
 

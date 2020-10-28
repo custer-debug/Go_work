@@ -19,9 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="Добавлено удаление пользователя с помощью POST-запроса на JS">
+    <list default="true" id="0511fe5a-20c5-41ca-9962-79b455e56681" name="Default Changelist" comment="Added unversioned files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginLogout.go" beforeDir="false" afterPath="$PROJECT_DIR$/LoginLogout.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainServerFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/MainServerFile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/PageAut.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/PageAut.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/SuccessfullEnter.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/SuccessfullEnter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/PostRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/PostRequests.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +38,7 @@
       <list>
         <option value="HTML File" />
         <option value="Go File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -57,7 +63,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CreateUser.go" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
@@ -71,17 +77,29 @@
       <recent name="C:\Users\romak\Desktop\Github\Go_work\html" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build MainServerFile.go">
     <configuration name="go build MainServerFile.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Go_work" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <parameters value="$FileName$ $FileName$" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/MainServerFile.go||$PROJECT_DIR$/LoginLogout.go|$PROJECT_DIR$/CreateUser.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build test.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="Go_work" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/test.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build MainServerFile.go" />
+      <item itemvalue="Go Build.go build test.go" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,13 +125,16 @@
     <MESSAGE value="Добавлены коментарии. Разделены функции входа и обработки главной страницы" />
     <MESSAGE value="Добавлено изменение данных профиля" />
     <MESSAGE value="Добавлено удаление пользователя с помощью POST-запроса на JS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено удаление пользователя с помощью POST-запроса на JS" />
+    <MESSAGE value="Функции добавлены в отдельные файлы. Добавлен переход на страницу авторизации после удаления страницы пользователя" />
+    <MESSAGE value="Added unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added unversioned files" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="600" y="191" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603792472853">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="2360" y="136" width="767" height="628" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603802234905">
+      <screen x="1982" y="0" width="1304" height="768" />
     </state>
-    <state x="600" y="191" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792472853" />
+    <state x="2360" y="136" width="767" height="628" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603802234905" />
+    <state x="600" y="191" width="1092" height="847" key="#com.intellij.execution.impl.EditConfigurationsDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603801249746" />
     <state x="926" y="277" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1603791236663">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -122,50 +143,54 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="737" y="398" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792258803" />
-    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603792467145">
+    <state x="771" y="307" key="FileChooserDialogImpl" timestamp="1603801188494">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792467145" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom" timestamp="1603791840040">
+    <state x="771" y="307" key="FileChooserDialogImpl/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603801188494" />
+    <state width="1819" height="162" key="GridCell.Tab.0.bottom" timestamp="1603913697671">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1327" height="95" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
-    <state width="1819" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center" timestamp="1603791840040">
+    <state width="1327" height="60" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603804457083" />
+    <state width="1819" height="162" key="GridCell.Tab.0.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603913697671" />
+    <state width="1819" height="364" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="162" key="GridCell.Tab.0.center" timestamp="1603913697671">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1327" height="95" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
-    <state width="1819" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left" timestamp="1603791840040">
+    <state width="1327" height="60" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603804457083" />
+    <state width="1819" height="162" key="GridCell.Tab.0.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603913697671" />
+    <state width="1819" height="364" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="162" key="GridCell.Tab.0.left" timestamp="1603913697671">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1327" height="95" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
-    <state width="1819" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right" timestamp="1603791840040">
+    <state width="1327" height="60" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603804457083" />
+    <state width="1819" height="162" key="GridCell.Tab.0.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603913697671" />
+    <state width="1819" height="364" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="162" key="GridCell.Tab.0.right" timestamp="1603913697671">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1327" height="95" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603647935380" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603791840040" />
-    <state width="1819" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603788773068" />
-    <state width="1819" height="364" key="GridCell.Tab.1.bottom" timestamp="1603221175029">
+    <state width="1327" height="60" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603804457083" />
+    <state width="1819" height="162" key="GridCell.Tab.0.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603913697671" />
+    <state width="1819" height="364" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="364" key="GridCell.Tab.1.bottom" timestamp="1603904111954">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="364" key="GridCell.Tab.1.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
-    <state width="1819" height="364" key="GridCell.Tab.1.center" timestamp="1603221175029">
+    <state width="1819" height="364" key="GridCell.Tab.1.bottom/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603903618758" />
+    <state width="1819" height="364" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="364" key="GridCell.Tab.1.center" timestamp="1603904111954">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="364" key="GridCell.Tab.1.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
-    <state width="1819" height="364" key="GridCell.Tab.1.left" timestamp="1603221175029">
+    <state width="1819" height="364" key="GridCell.Tab.1.center/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603903618758" />
+    <state width="1819" height="364" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="364" key="GridCell.Tab.1.left" timestamp="1603904111954">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="364" key="GridCell.Tab.1.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
-    <state width="1819" height="364" key="GridCell.Tab.1.right" timestamp="1603221175029">
+    <state width="1819" height="364" key="GridCell.Tab.1.left/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603903618758" />
+    <state width="1819" height="364" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
+    <state width="1819" height="364" key="GridCell.Tab.1.right" timestamp="1603904111954">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1819" height="364" key="GridCell.Tab.1.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603221175029" />
+    <state width="1819" height="364" key="GridCell.Tab.1.right/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603903618758" />
+    <state width="1819" height="364" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1603904111954" />
     <state width="209" height="456" key="HiddenNamespacesPopup" timestamp="1603109725836">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -174,12 +199,12 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="590" y="147" key="SettingsEditor/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603792070053" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1603752650216">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1603886567068">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="2348" y="194" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603648497944" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603752650216" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1603569560757" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603793031933" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1603886567068" />
     <state x="890" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1603273945276">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -197,5 +222,13 @@
     </state>
     <state x="583" y="228" width="689" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603274515737" />
     <state x="834" y="243" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1603126284263" />
+    <state x="2417" y="279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603802183051">
+      <screen x="1982" y="0" width="1304" height="768" />
+    </state>
+    <state x="2417" y="279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1982.0.1304.768/62.0.1858.1080@1982.0.1304.768" timestamp="1603802183051" />
+    <state x="654" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603912721065">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="654" y="235" width="672" height="678" key="search.everywhere.popup/1982.0.1304.768/62.0.1858.1080@62.0.1858.1080" timestamp="1603912721065" />
   </component>
 </project>
