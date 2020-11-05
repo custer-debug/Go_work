@@ -44,3 +44,8 @@ StaticFiles/bootsrap/js/bootstrap.js
 StaticFiles/bootsrap/js/bootstrap.js.map
 StaticFiles/bootsrap/js/bootstrap.min.js
 StaticFiles/bootsrap/js/bootstrap.min.js.map
+src
+*.mod
+go.mod
+*.sum
+go.sum
