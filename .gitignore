@@ -14,3 +14,33 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 tmp/build-errors.log
+*.ico
+*.png
+StaticFiles/bootsrap/CSS/bootstrap-grid.css
+StaticFiles/bootsrap/CSS/bootstrap-grid.css.map
+StaticFiles/bootsrap/CSS/bootstrap-grid.min.css
+StaticFiles/bootsrap/CSS/bootstrap-grid.min.css.map
+StaticFiles/bootsrap/CSS/bootstrap-reboot.css
+StaticFiles/bootsrap/CSS/bootstrap-reboot.css.map
+StaticFiles/bootsrap/CSS/bootstrap-reboot.min.css
+StaticFiles/bootsrap/CSS/bootstrap-reboot.min.css.map
+StaticFiles/bootsrap/CSS/bootstrap-utilities.css
+StaticFiles/bootsrap/CSS/bootstrap-utilities.css.map
+StaticFiles/bootsrap/CSS/bootstrap-utilities.min.css
+StaticFiles/bootsrap/CSS/bootstrap-utilities.min.css.map
+StaticFiles/bootsrap/CSS/bootstrap.css
+StaticFiles/bootsrap/CSS/bootstrap.css.map
+StaticFiles/bootsrap/CSS/bootstrap.min.css
+StaticFiles/bootsrap/CSS/bootstrap.min.css.map
+StaticFiles/bootsrap/js/bootstrap.bundle.js
+StaticFiles/bootsrap/js/bootstrap.bundle.js.map
+StaticFiles/bootsrap/js/bootstrap.bundle.min.js
+StaticFiles/bootsrap/js/bootstrap.bundle.min.js.map
+StaticFiles/bootsrap/js/bootstrap.esm.js
+StaticFiles/bootsrap/js/bootstrap.esm.js.map
+StaticFiles/bootsrap/js/bootstrap.esm.min.js
+StaticFiles/bootsrap/js/bootstrap.esm.min.js.map
+StaticFiles/bootsrap/js/bootstrap.js
+StaticFiles/bootsrap/js/bootstrap.js.map
+StaticFiles/bootsrap/js/bootstrap.min.js
+StaticFiles/bootsrap/js/bootstrap.min.js.map
