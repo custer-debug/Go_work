@@ -1,4 +1,4 @@
-package main
+package in_out_function
 
 import (
 	"database/sql"
@@ -19,8 +19,10 @@ type User struct {
 	Password 	string
 }
 
+
+
 var	(
-	_user* User
+	_user  *User
 	cookie = new(fiber.Cookie)
 	)
 
@@ -32,21 +34,20 @@ func Logout(ctx *fiber.Ctx)error{
 		fmt.Println("Cookie is empty")
 	}
 	_user = nil
-
 	ctx.Redirect("/login")
 	return nil
 }
 
 
 
-func CheckCookie(c *fiber.Ctx)error{
+func CheckCookie(c *fiber.Ctx)(fiber.Cookie,error){
 	if cookie.Value == "" || _user == nil{
 		c.Redirect("/login")
 		//goland:noinspection ALL
-		return errors.New("Cookies is empty")
+		return fiber.Cookie{}, errors.New("Cookies is empty")
 	}
 
-	return nil
+	return *cookie, nil
 }
 
 
@@ -54,7 +55,6 @@ func CheckCookie(c *fiber.Ctx)error{
 
 func GetLogin(c *fiber.Ctx) error {
 	fmt.Println("GetLogin")
-
 	return c.SendFile("./html/PageAut.html")
 }
 
@@ -91,7 +91,7 @@ func PostLogin(c *fiber.Ctx) error {
 		cookie.Name = "user"
 		cookie.Value = string(json)
 		c.Cookie(cookie)
-		fmt.Println("PostLogin",cookie)
+		fmt.Println("PostLogin", cookie)
 		c.Redirect("/welcome")
 	}
 
