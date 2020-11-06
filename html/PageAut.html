@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../CSS/bootstrap.css" type="text/css" rel="stylesheet">
-    <link rel = "icon" href = "../CSS/images/packy_logo.png">
+    <link rel="stylesheet" href="../StaticFiles/CSS/bootstrap.css" type="text/css" >
+    <link rel = "icon" href = "../StaticFiles/CSS/images/packy_ico.ico">
     <title>Authorization</title>
 </head>
-  
-<body >
-   
+<script>
+
+if (document.cookie != ""){
+    location.replace("/welcome")
+}
+
+</script>
+<body>
+
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
        <a class="navbar-brand" href="#" style = "margin-left: 10px; margin-top: 5px">
            <h5>
            Packy
@@ -31,16 +38,20 @@
     <form method="POST"  class = "container" >
         <div class = "bg-light">
                 <div class="row justify-content-around " >
-                    <div class="col-sm-3 card bg-light" style = "margin:15%" >
+                    <div class="col-sm-3 card bg-light" style = "margin:15%">
                         <p class = "h2">Sign in</p>
 
                         <label for = "login" >Login</label>
 
-                            <input type = "email" id = "login"  required placeholder = "Enter login" name = "login" class = "form-control" style ="width: 250px">    
+                            <input type = "email" id = "login"  required placeholder = "Enter login" name = "login"
+                                   class = "form-control" style ="width: 250px">
+
                             <label for = "password">Password</label>
-                            <input type = "password" id = "password" required placeholder = "Enter password" name = "pass" class = "form-control" style ="width: 250px"><br>
-                        <button type="submit" id = "hello" class="btn btn-outline-primary">Submit</button>
-                        <a href="/create/" class = "btn btn-link" >Registration</a>
+                            <input type = "password" id = "password" required placeholder = "Enter password"
+                                   name = "pass" class = "form-control" style ="width: 250px"><br>
+
+                        <button id = "hello" class="btn btn-outline-primary">Submit</button>
+                        <a href="/create" class = "btn btn-link">Registration</a>
 
                     </div>
                 </div>
@@ -49,7 +60,7 @@
 
 
     </form>
-           
- 
+
+
 </body>
 </html>
