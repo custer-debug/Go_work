@@ -53,7 +53,8 @@ func PostLogin(c *fiber.Ctx) error {
 	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
 	var user = new(User)
 	defer db.Close()
-	rows := db.QueryRow("select * from dataofusers where login = ? and password = ?;", login, password)
+	rows := db.QueryRow("select * from dataofusers where login = ? and password = ?;",
+		login, password)
 
 	var err = rows.Scan(
 		&user.ID,

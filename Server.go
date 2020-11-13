@@ -1,6 +1,7 @@
 package main
 
 import (
+	crus "custer-debug/createuser"
 	iof "custer-debug/in-out-function"
 	json2 "encoding/json"
 	_ "github.com/go-sql-driver/mysql"
@@ -29,6 +30,9 @@ func main() {
 
 	app.Get("/welcome", MainPageHandler)
 	app.Get("/logout", iof.Logout)
+
+	app.Get("/create", crus.GetCreateHandler)
+	app.Post("/create", crus.PostCreateHandler)
 
 	log.Fatal(app.Listen(":80"))
 }
