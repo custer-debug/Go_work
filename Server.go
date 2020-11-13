@@ -8,24 +8,22 @@ import (
 	"log"
 )
 
-func MainPageHandler(ctx *fiber.Ctx)error{
+func MainPageHandler(ctx *fiber.Ctx) error {
 	c, err := iof.CheckCookie(ctx)
-	if err != nil{
+	if err != nil {
 		log.Println(err)
 		return nil
 	}
 	var user iof.User
-	err = json2.Unmarshal([]byte(c.Value),&user)
+	err = json2.Unmarshal([]byte(c.Value), &user)
 	return ctx.Render("./html/Welcome.html", user)
 
 }
 
-
-
 func main() {
 	app := fiber.New()
-	app.Static("/StaticFiles", "./StaticFiles")
 
+	app.Static("", "./StaticFiles")
 	app.Get("/login", iof.GetLogin)
 	app.Post("/login", iof.PostLogin)
 

@@ -9,39 +9,29 @@ import (
 	"log"
 )
 
-
 type User struct {
-	ID 			int
-	Firstname	string
-	Lastname 	string
-	Age 		int
-	Login 		string
-	Password 	string
+	ID        int
+	Firstname string
+	Lastname  string
+	Age       int
+	Login     string
+	Password  string
 }
 
-
-
-var	(
+var (
 	_user  *User
 	cookie = new(fiber.Cookie)
-	)
+)
 
-
-
-func Logout(ctx *fiber.Ctx)error{
+func Logout(ctx *fiber.Ctx) error {
 	ctx.ClearCookie()
-	if cookie.Value == ""{
-		fmt.Println("Cookie is empty")
-	}
 	_user = nil
-	ctx.Redirect("/login")
-	return nil
+	return ctx.Redirect("/login")
+
 }
 
-
-
-func CheckCookie(c *fiber.Ctx)(fiber.Cookie,error){
-	if cookie.Value == "" || _user == nil{
+func CheckCookie(c *fiber.Ctx) (fiber.Cookie, error) {
+	if cookie.Value == "" || _user == nil {
 		c.Redirect("/login")
 		//goland:noinspection ALL
 		return fiber.Cookie{}, errors.New("Cookies is empty")
@@ -50,15 +40,10 @@ func CheckCookie(c *fiber.Ctx)(fiber.Cookie,error){
 	return *cookie, nil
 }
 
-
-
-
 func GetLogin(c *fiber.Ctx) error {
-	fmt.Println("GetLogin")
+
 	return c.SendFile("./html/PageAut.html")
 }
-
-
 
 func PostLogin(c *fiber.Ctx) error {
 
@@ -79,15 +64,14 @@ func PostLogin(c *fiber.Ctx) error {
 		&user.Password,
 	)
 
-
 	if err != nil {
 		log.Println("Incorrect login or password")
 		c.Redirect("/login")
 
-	}else{
+	} else {
 		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
 		_user = user
-		json , _ := json2.Marshal(user)
+		json, _ := json2.Marshal(user)
 		cookie.Name = "user"
 		cookie.Value = string(json)
 		c.Cookie(cookie)

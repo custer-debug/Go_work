@@ -5,13 +5,20 @@
         <meta charset="UTF-8">
         <title>Welcome</title>
         <link href = "../StaticFiles/CSS/bootstrap.css" type="text/css" rel = "stylesheet">
-         <link rel = "icon" href = "../StaticFiles/CSS/packy_logo.png">
+
     </head>
 
     <script>
+
+        function logout(){
+            location.replace("/logout");
+        }
+
          if(document.cookie === ""){
-             location.replace("/login")
+             location.replace("/login");
          }
+
+
     </script>
     <body>
        
@@ -30,11 +37,11 @@
             <a class="nav-link" href="#">Documentation</a>
           </li>
         </ul>
-        <form action = "/settings/">
+        <form action = "/settings">
              <button class="btn btn-outline-light my-3 my-sm-0" style="margin-right: 10px" type="submit">Settings</button>
           </form>
           
-                 <input class="btn btn-danger my-sm-0" style="margin-right: 10px" value = "Logout" type="submit">
+                 <input class="btn btn-danger my-sm-0" style="margin-right: 10px" value = "Logout" type="submit" onclick="logout()">
           
       </div>
     </nav>
