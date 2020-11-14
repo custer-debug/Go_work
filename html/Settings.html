@@ -7,7 +7,15 @@
 
     <title>Settings</title>
 </head>
+<script>
+    function logout(){
+        location.replace("/logout");
+    }
 
+    function deleteUser(){
+    location.replace("/delete")
+    }
+</script>
        
 <body>
      
@@ -27,14 +35,8 @@
           </li>
         </ul>
           <form>
-             <input id = "Logout" class="btn btn-danger my-sm-0" style="margin-right: 10px" value = "Logout" type="button" >
+             <input id = "Logout" class="btn btn-danger my-sm-0" style="margin-right: 10px" value = "Logout" type="button" onclick="logout()">
           </form>
-           <script>
-                Logout.onclick = function(){
-                document.location.replace("/logout/");
-                }
-
-            </script>
           
       </div>
     </nav>
@@ -46,9 +48,7 @@
             <a class = "nav-item nav-link active" id = "nav-profile-tab" data-toggle = "tab" href = "#nav-profile" role = "tab" aria-controls="nav-profile" aria-selected ="true">Profile</a>
             
             <a class = "nav-item nav-link" id = "private-tab" data-toggle = "tab" href = "#nav-private" role = "tab" aria-controls="nav-private" aria-selected ="false">Private</a>
-            
           </div>
-        
         </nav>
         
         <div class = "tab-content" id = "nav-tabContent">
@@ -66,7 +66,7 @@
                         </div>
                        
                     </div>
-                      <input class = "btn btn-outline-danger" value = "Delete account"  style = "margin-top: 500px" id = "send">
+                      <input class = "btn btn-outline-danger" value = "Delete account" type = "button" style = "margin-top: 500px" onclick="deleteUser()">
                 </form> 
                 
             </div>
