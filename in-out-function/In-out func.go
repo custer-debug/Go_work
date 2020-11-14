@@ -3,7 +3,6 @@ package in_out_function
 import (
 	"database/sql"
 	json2 "encoding/json"
-	"errors"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"log"
@@ -18,35 +17,19 @@ type User struct {
 	Password  string
 }
 
-var (
-	_user  *User
-	cookie = new(fiber.Cookie)
-)
-
 func Logout(ctx *fiber.Ctx) error {
 	ctx.ClearCookie()
-	_user = nil
 	return ctx.Redirect("/login")
 
 }
 
-func CheckCookie(c *fiber.Ctx) (fiber.Cookie, error) {
-	if cookie.Value == "" || _user == nil {
-		c.Redirect("/login")
-		//goland:noinspection ALL
-		return fiber.Cookie{}, errors.New("Cookies is empty")
-	}
-
-	return *cookie, nil
-}
-
 func GetLogin(c *fiber.Ctx) error {
 
-	return c.SendFile("./html/PageAut.html")
+	return c.SendFile("./html/Login.html")
 }
 
 func PostLogin(c *fiber.Ctx) error {
-
+	cookie := new(fiber.Cookie)
 	login := c.FormValue("login")
 	password := c.FormValue("pass")
 
@@ -71,12 +54,12 @@ func PostLogin(c *fiber.Ctx) error {
 
 	} else {
 		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
-		_user = user
 		json, _ := json2.Marshal(user)
 		cookie.Name = "user"
 		cookie.Value = string(json)
 		c.Cookie(cookie)
 		fmt.Println("PostLogin", cookie)
+
 		c.Redirect("/welcome")
 	}
 

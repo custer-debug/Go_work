@@ -4,7 +4,8 @@
     <head >
         <meta charset="UTF-8">
         <title>Welcome</title>
-        <link href = "../StaticFiles/CSS/bootstrap.css" type="text/css" rel = "stylesheet">
+        <link rel = "shortcut icon" href = "../bootstrap/images/packy_ico.png" type = "image/png">
+        <link href = "../bootstrap/CSS/bootstrap.css" type="text/css" rel = "stylesheet">
 
     </head>
 
@@ -12,14 +13,30 @@
 
         function logout(){
             location.replace("/logout");
+
         }
 
          if(document.cookie === ""){
              location.replace("/login");
          }
 
+    /*    function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        function SendTest(){
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "/welcome");
+            xhr.setRequestHeader('Content-Type',"application/json");
+            xhr.send(getCookie("user"));
+
+        }*/
 
     </script>
+    
     <body>
        
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,6 +68,6 @@
         {{.Lastname}}!
             </label>
         </div>        
-        <script src = "../StaticFiles/js/bootstrap.js"> </script>
+        <script src = "../bootstrap/js/bootstrap.js"> </script>
     </body>
 </html>

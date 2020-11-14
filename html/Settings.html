@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel = "stylesheet" href = "../CSS/bootstrap.css">
-   
-        
+    <link rel = "shortcut icon" href = "../bootstrap/images/packy_ico.png" type = "image/png">
+    <link href = "../bootstrap/CSS/bootstrap.css" type="text/css" rel = "stylesheet">
+
     <title>Settings</title>
 </head>
 
@@ -57,9 +57,9 @@
                     <div class = "row" style = "margin-top: 50px;">
                         <div class = "col">
                           Имя
-                           <input type="text" class="form-control" value = "{{.FirstName}}" style = "width: 250px; margin-bottom: 10px" name = "NewName" id = "Name">
+                           <input type="text" class="form-control" value = "{{.Firstname}}" style = "width: 250px; margin-bottom: 10px" name = "NewName" id = "Name">
                           Фамилия
-                          <input type="text" class="form-control" value = "{{.LastName}}" style = "width: 250px; margin-bottom: 10px" name = "NewSurname" id = "Surname">
+                          <input type="text" class="form-control" value = "{{.Lastname}}" style = "width: 250px; margin-bottom: 10px" name = "NewSurname" id = "Surname">
                         <button class = "btn btn-success" style = "margin-top: 10px" type = "submit">Change</button>
                         <button class = "btn btn-secondary" style = "margin-top: 10px" type = "Reset">Reset</button>
 
