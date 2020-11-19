@@ -4,21 +4,32 @@ import (
 	"database/sql"
 	json2 "encoding/json"
 	"fmt"
-	"github.com/gofiber/fiber/v2"
 	"log"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 type User struct {
 	ID        int
 	Firstname string
 	Lastname  string
-	Age       int
+	Birthday  string
+	Gender    string
+	Phone     string
 	Login     string
 	Password  string
+	WebSite   []string
+}
+
+var user = new(User)
+
+func GetUser() *User {
+	return user
 }
 
 func Logout(ctx *fiber.Ctx) error {
 	ctx.ClearCookie()
+
 	return ctx.Redirect("/login")
 
 }
@@ -28,38 +39,101 @@ func GetLogin(c *fiber.Ctx) error {
 	return c.SendFile("./html/Login.html")
 }
 
-func PostLogin(c *fiber.Ctx) error {
+func SetCookie(c *fiber.Ctx) {
+
+	json, _ := json2.Marshal(struct {
+		ID        int
+		FirstName string
+		LastName  string
+	}{
+		ID:        user.ID,
+		FirstName: user.Firstname,
+		LastName:  user.Lastname,
+	})
+
 	cookie := new(fiber.Cookie)
-	login := c.FormValue("login")
-	password := c.FormValue("pass")
+	cookie.Name = "user"
+	cookie.Value = string(json)
+	c.Cookie(cookie)
+	fmt.Println("Set Cookie")
+}
 
-	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
-	var user = new(User)
-	defer db.Close()
-	rows := db.QueryRow("select * from dataofusers where login = ? and password = ?;",
-		login, password)
+//Getting general info about user
+func getUserData(l string, p string, db *sql.DB) error {
 
-	var err = rows.Scan(
+	row := db.QueryRow("select * from dataofusers where login = ? and password = ?;",
+		l, p)
+
+	var err = row.Scan(
 		&user.ID,
 		&user.Firstname,
 		&user.Lastname,
-		&user.Age,
 		&user.Login,
 		&user.Password,
+		&user.Gender,
+		&user.Birthday,
+		&user.Phone,
+	)
+	getWebSites(db)
+	return err
+}
+
+func GetUserDataID(ID int, db *sql.DB) error {
+	row := db.QueryRow("select * from dataofusers"+
+		" where ID = ?",
+		ID,
 	)
 
+	var err = row.Scan(
+		&user.ID,
+		&user.Firstname,
+		&user.Lastname,
+		&user.Login,
+		&user.Password,
+		&user.Gender,
+		&user.Birthday,
+		&user.Phone,
+	)
+	getWebSites(db)
+	return err
+}
+
+func getWebSites(db *sql.DB) {
+	rows, err := db.Query("SELECT Link from websites where websites.ID_user = ? ",
+		user.ID)
+
 	if err != nil {
-		log.Println("Incorrect login or password")
+		log.Println(err)
+		return
+	}
+
+	for rows.Next() {
+		var tmp string
+		if err = rows.Scan(&tmp); err != nil {
+			log.Println(err)
+			return
+		}
+
+		user.WebSite = append(user.WebSite, tmp)
+	}
+}
+
+func PostLogin(c *fiber.Ctx) error {
+	login := c.FormValue("login")
+	password := c.FormValue("pass")
+	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
+
+	var err = getUserData(login, password, db)
+	db.Close()
+
+	//Check correct password
+	if err != nil {
+		log.Println("Incorrect login or password", err)
 		c.Redirect("/login")
 
 	} else {
 		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
-		json, _ := json2.Marshal(user)
-		cookie.Name = "user"
-		cookie.Value = string(json)
-		c.Cookie(cookie)
-		fmt.Println("PostLogin", cookie)
-
+		SetCookie(c)
 		c.Redirect("/welcome")
 	}
 

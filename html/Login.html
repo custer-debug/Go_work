@@ -16,7 +16,12 @@
     }
 
 
+
+
 </script>
+
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
        <a class="navbar-brand" href="#" style = "margin-left: 10px; margin-top: 5px">
@@ -27,32 +32,30 @@
       
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="#">Documentation</a>
-          </li>
+
         </ul>
      
       </div>
     </nav>
     
-    <form method="POST"  class = "container" >
+  
+
+    <form method="POST"  class = "container" id = "form">
         <div class = "bg-light">
                 <div class="row justify-content-around " >
                     <div class="col-sm-3 card bg-light" style = "margin:15%">
                         <p class = "h2">Sign in</p>
 
-                        <label for = "login" >Login</label>
-
-                            <input type = "email" id = "login"  required placeholder = "Enter login" name = "login"
-                                   class = "form-control" style ="width: 250px">
-
-                            <label for = "password">Password</label>
-                            <input type = "password" id = "password" required placeholder = "Enter password"
-                                   name = "pass" class = "form-control" style ="width: 250px"><br>
-
-                        <button id = "hello" class="btn btn-outline-primary">Submit</button>
+                        <label for = "login">Login</label>
+                        <div>
+                            <input type = "email" id = "login"  placeholder = "Enter login" class = "form-control">
+                        </div>
+                        <label for = "password">Password</label>
+                        <div>
+                            <input type = "password" id = "password" placeholder = "Enter password"
+                                  class = "form-control" >
+                        </div>
+                        <button class="btn btn-outline-primary" style="margin-top: 10px">Submit</button>
                         <a href="/create" class = "btn btn-link">Registration</a>
 
                     </div>
@@ -61,8 +64,41 @@
     <hr>
 
 
-    </form>
 
-<script src = "../bootstrap/js/bootstrap.js"> </script>
+    </form>
+    <script>
+        const form = document.getElementById('form');
+        const email = document.getElementById('login');
+        const password = document.getElementById('password');
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            checkInputs();
+        });
+
+        function checkInputs(){
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+
+            if(emailValue === ""){
+                email.parentElement.className = 'form-control is-invalid';
+            }else{
+                email.parentElement.className = 'form-control';
+            }
+
+            if(passwordValue === ""){
+                password.parentElement.className = 'form-control is-invalid';
+            }else{
+                password.parentElement.className = 'form-control';
+            }
+
+
+        }
+
+
+    </script>
+
+   
+    <script src = "../bootstrap/js/bootstrap.js"> </script>
 </body>
 </html>

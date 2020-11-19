@@ -1,20 +1,12 @@
 package createuser
 
 import (
+	iof "custer-debug/in-out-function"
 	"database/sql"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"log"
 )
-
-type User struct {
-	ID        string
-	Firstname string `json:"name"`
-	Lastname  string `json:"surname"`
-	Age       int    `json:"age"`
-	Login     string `json:"login"`
-	Password  string `json:"password" `
-}
 
 func GetCreateHandler(ctx *fiber.Ctx) error {
 	fmt.Println("GetCreate")
@@ -24,7 +16,7 @@ func GetCreateHandler(ctx *fiber.Ctx) error {
 
 func PostCreateHandler(ctx *fiber.Ctx) error {
 	fmt.Println("PostCreate")
-	var u = new(User)
+	var u = new(iof.User)
 	if err := ctx.BodyParser(u); err != nil {
 		log.Println(err)
 		return err
@@ -32,12 +24,16 @@ func PostCreateHandler(ctx *fiber.Ctx) error {
 	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
 	defer db.Close()
 
-	var _, err = db.Exec("insert into dataofusers(firstname, lastname, age, login, password) values(?,?,?,?,?);",
+	var _, err = db.Exec("insert into dataofusers(firstname, lastname, Birthday,Gender,Phone,login, password) "+
+		"values(?,?,?,?,?,?,?);",
 		u.Firstname,
 		u.Lastname,
-		u.Age,
+		u.Birthday,
+		u.Gender,
+		u.Phone,
 		u.Login,
-		u.Password)
+		u.Password,
+	)
 	if err != nil {
 		log.Println(err)
 		return err

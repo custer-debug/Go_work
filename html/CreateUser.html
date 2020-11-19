@@ -9,14 +9,24 @@
 </head>
 <script>
     function SendPostRequest(){
+        let check = "Female"
+       if(document.getElementById("Male").checked){
+           check = "Male";
+       }
 
+        console.log(check)
 
-        const toSend= {
+        const l = document.getElementById("password").value
+        const r = document.getElementById("secondpassword").value
+        if(l === r){
+            const toSend= {
             name : document.getElementById("firstname").value,
             surname : document.getElementById("lastname").value,
-            age : Number(document.getElementById("age").value),
+            birthday : document.getElementById("birthday").value,
+            gender: check,
+            phone : document.getElementById("phone").value,
             login : document.getElementById("login").value,
-            password : document.getElementById("password").value
+            password : l
         };
         const json = JSON.stringify(toSend);
 
@@ -24,6 +34,12 @@
         xhr.open("POST","/create");
         xhr.setRequestHeader('Content-Type',"application/json");
         xhr.send(json);
+        location.replace("/login");
+
+        }else{
+            location.reload();
+            alert("Passwords do not match");
+        }
 
     }
 
@@ -31,7 +47,7 @@
     <body >
         
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="/auth/" style = "margin-left: 10px; margin-top: 5px">
+       <a class="navbar-brand" href="/login" style = "margin-left: 10px; margin-top: 5px">
            <h5>
            Packy
            </h5>
@@ -54,43 +70,56 @@
                
                
             <div class="col-sm-4 card bg-light" style = "margin:5%">
-
                 <label>
-                First Name
+                    First Name
                 </label>
-                    <input type = "text" id = "firstname" required placeholder="Your name" class = "border border-dark rounded " style = "margin-bottom: 10px; height: 35px">
+                <input type = "text" id = "firstname" required placeholder="Your surname"
+                       class = "border border-dark rounded " style = "margin-bottom: 10px; height: 35px" >
                 <label>
                 Last Name
                 </label>
-                    <input type = "text" id = "lastname" required placeholder="Your surname" class = "border border-dark rounded " style = "margin-bottom: 10px; height: 35px" >
+                    <input type = "text" id = "lastname" required placeholder="Your name"
+                           class = "border border-dark rounded " style = "margin-bottom: 10px; height: 35px">
+
                 <label>
-                Age
+                Birthday
                 </label>
-                <input type = "number" id = "age" placeholder="Your age" class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px" >
+                <input type = "datetime-local" id = "birthday" placeholder="Your age"
+                       class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px" >
                 <label> 
                 Gender
                 </label>
                     <div class = "rows" style = "margin-bottom: 10px">
                     <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                         <input class="form-check-input" type="radio" name = "radio" id = "Male" value="Male">
                          <label class="form-check-label" for="inlineRadio1">M</label>
                     
                     </div>
                     <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                          <input class="form-check-input" type="radio" name = "radio" id = "Female" value="Female">
                           <label class="form-check-label" for="inlineRadio2">F</label>
                     </div>
-                            
                     </div>
+                   <label>
+                    Phone
+                </label>
+                <input type = "phone" id = "phone" required placeholder="Enter phone"
+                       class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
                 <label>
                 login 
                 </label>
-                    <input type = "text" id = "login" required placeholder="Enter login" class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
+                <input type = "text" id = "login" required placeholder="Enter login"
+                       class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
                 <label>
                 Password
                 </label>
-
-                <input type = "text" id = "password" required placeholder="Enter password" class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
+                <input type = "password" id = "password" required placeholder="Enter password"
+                       class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
+                <label>
+                Password again
+                </label>
+                <input type = "password" id = "secondpassword" required placeholder="Enter password"
+                       class = "border border-dark rounded" style = "margin-bottom: 10px; height: 35px">
 
 
                 <input onclick="SendPostRequest()" type = "button" value = "Create" class="btn btn-dark " style="margin-top: 20px; margin-bottom: 20px; width: 200px">
