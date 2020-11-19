@@ -119,23 +119,26 @@ func getWebSites(db *sql.DB) {
 }
 
 func PostLogin(c *fiber.Ctx) error {
+
 	login := c.FormValue("login")
-	password := c.FormValue("pass")
+	password := c.FormValue("password")
+	println(login + password)
 	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
 
-	var err = getUserData(login, password, db)
-	db.Close()
+		var err = getUserData(login, password, db)
+		db.Close()
 
-	//Check correct password
-	if err != nil {
-		log.Println("Incorrect login or password", err)
-		c.Redirect("/login")
+		//Check correct password
+		if err != nil {
+			log.Println("Incorrect login or password", err)
+			c.Redirect("/login")
 
-	} else {
-		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
-		SetCookie(c)
-		c.Redirect("/welcome")
-	}
+		} else {
+			fmt.Println("Welcome, " + user.Firstname + user.Lastname)
+			SetCookie(c)
+			c.Redirect("/welcome")
+
+		}
 
 	return nil
 

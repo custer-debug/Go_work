@@ -15,9 +15,6 @@
         location.replace("/welcome");
     }
 
-
-
-
 </script>
 
 
@@ -39,23 +36,21 @@
     </nav>
     
   
-
-    <form method="POST"  class = "container" id = "form">
+<form method="POST" class = "container">
         <div class = "bg-light">
                 <div class="row justify-content-around " >
                     <div class="col-sm-3 card bg-light" style = "margin:15%">
                         <p class = "h2">Sign in</p>
-
                         <label for = "login">Login</label>
-                        <div>
-                            <input type = "email" id = "login"  placeholder = "Enter login" class = "form-control">
-                        </div>
+
+                            <input type = "email" class = "form-control" id = "login"  placeholder = "Enter login" name = "login">
+
                         <label for = "password">Password</label>
-                        <div>
-                            <input type = "password" id = "password" placeholder = "Enter password"
+
+                            <input type = "password" id = "password" placeholder = "Enter password" name = "password"
                                   class = "form-control" >
-                        </div>
-                        <button class="btn btn-outline-primary" style="margin-top: 10px">Submit</button>
+
+                        <button type = "submit" class="btn btn-outline-primary" style="margin-top: 10px">Submit</button>
                         <a href="/create" class = "btn btn-link">Registration</a>
 
                     </div>
@@ -66,37 +61,7 @@
 
 
     </form>
-    <script>
-        const form = document.getElementById('form');
-        const email = document.getElementById('login');
-        const password = document.getElementById('password');
 
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            checkInputs();
-        });
-
-        function checkInputs(){
-            const emailValue = email.value.trim();
-            const passwordValue = password.value.trim();
-
-            if(emailValue === ""){
-                email.parentElement.className = 'form-control is-invalid';
-            }else{
-                email.parentElement.className = 'form-control';
-            }
-
-            if(passwordValue === ""){
-                password.parentElement.className = 'form-control is-invalid';
-            }else{
-                password.parentElement.className = 'form-control';
-            }
-
-
-        }
-
-
-    </script>
 
    
     <script src = "../bootstrap/js/bootstrap.js"> </script>
