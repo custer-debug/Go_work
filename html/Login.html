@@ -36,7 +36,7 @@
     </nav>
     
   
-<form method="POST" class = "container">
+<form id = "formData" class = "container">
         <div class = "bg-light">
                 <div class="row justify-content-around " >
                     <div class="col-sm-3 card bg-light" style = "margin:15%">
@@ -58,12 +58,41 @@
         </div>
     <hr>
 
-
-
     </form>
 
+    <script>
+const url = "/login"
+let inputForm = document.getElementById("formData")
 
-   
+function Test(t){
+    console.log(t)
+}
+
+
+
+inputForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formdata = new FormData(inputForm)
+    console.log(formdata)
+
+    fetch(url,{
+        method:"POST",
+        body:formdata,
+    }).then(
+        async response =>  Test(await response.text())
+    )
+
+
+
+})
+
+
+
+
+
+
+    </script>
+
     <script src = "../bootstrap/js/bootstrap.js"> </script>
 </body>
 </html>
