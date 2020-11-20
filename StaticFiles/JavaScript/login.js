@@ -3,7 +3,12 @@ let inputForm = document.getElementById("formData")
 
 function ParseResponse(response){
     if(response === "Error"){
+        doc = document.getElementById("message")
+        const control = doc.parentElement;
 
+
+        control.className = "alert alert-danger alert-dismissible fade show";
+        
         //Here message about incorrect login or password
 
     }else if(response === "Success"){
@@ -24,3 +29,4 @@ inputForm.addEventListener("submit", (e) => {
     )
 
 })
+
