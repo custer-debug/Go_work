@@ -11,7 +11,7 @@ import (
 func GetCreateHandler(ctx *fiber.Ctx) error {
 	fmt.Println("GetCreate")
 
-	return ctx.SendFile("./html/CreateUser.html")
+	return ctx.SendFile("./html/createUser.html")
 }
 
 func PostCreateHandler(ctx *fiber.Ctx) error {

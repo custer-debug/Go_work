@@ -36,7 +36,7 @@ func Logout(ctx *fiber.Ctx) error {
 
 func GetLogin(c *fiber.Ctx) error {
 
-	return c.SendFile("./html/Login.html")
+	return c.SendFile("./html/login.html")
 }
 
 func SetCookie(c *fiber.Ctx) {
@@ -131,13 +131,13 @@ func PostLogin(c *fiber.Ctx) error {
 	//Check correct password
 	if err != nil {
 
-		c.SendString("Incorrect password")
+		c.SendString("Error") //If incorrect login or password
 
 	} else {
+
 		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
 		SetCookie(c)
-		c.Redirect("/welcome")
-
+		c.SendString("Success")
 	}
 
 	return nil

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel = "shortcut icon" href = "../bootstrap/images/packy_ico.png" type = "image/png">
-    <link rel = "stylesheet" href="../bootstrap/CSS/bootstrap.css" type="text/css" >
+    <link rel = "shortcut icon" href = "../StaticFiles/images/packy_ico.png" type = "image/png">
+    <link rel = "stylesheet" href="../StaticFiles/bootstrapCss/bootstrap.css" type="text/css" >
 
     <title>Authorization</title>
 </head>
@@ -64,10 +64,16 @@
 const url = "/login"
 let inputForm = document.getElementById("formData")
 
-function Test(t){
-    console.log(t)
-}
+function ParseResponse(response){
+    if(response === "Error"){
 
+
+        //Here message about incorrect login or password
+
+    }else if(response === "Success"){
+        location.replace("/welcome")
+    }
+}
 
 
 inputForm.addEventListener("submit", (e) => {
@@ -79,20 +85,15 @@ inputForm.addEventListener("submit", (e) => {
         method:"POST",
         body:formdata,
     }).then(
-        async response =>  Test(await response.text())
+        async response =>  ParseResponse(await response.text())
     )
 
 
 
 })
 
-
-
-
-
-
     </script>
 
-    <script src = "../bootstrap/js/bootstrap.js"> </script>
+    <script src = "../StaticFiles/bootstrapJs/bootstrap.js"> </script>
 </body>
 </html>

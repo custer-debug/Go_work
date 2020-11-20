@@ -11,7 +11,7 @@ import (
 func main() {
 	app := fiber.New()
 
-	app.Static("/bootstrap", "./bootstrap")
+	app.Static("/StaticFiles", "./StaticFiles")
 
 	app.Get("/login", iof.GetLogin)
 	app.Post("/login", iof.PostLogin)

@@ -31,12 +31,12 @@ func GetWelcomeHandler(ctx *fiber.Ctx) error {
 		db.Close()
 	}
 
-	return ctx.Render("./html/Welcome.html", iof.GetUser())
+	return ctx.Render("./html/welcome.html", iof.GetUser())
 }
 
 func HandlerGetSettings(ctx *fiber.Ctx) error {
 
-	return ctx.Render("./html/Settings.html", iof.GetUser())
+	return ctx.Render("./html/settings.html", iof.GetUser())
 }
 
 func connectToDatabase() *sql.DB {
