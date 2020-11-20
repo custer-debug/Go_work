@@ -13,3 +13,5 @@ This is the link to work with the database, and the link to install
 
     go get -u github.com/go-sql-driver/mysql
 
+Communication is established using [XHR-requests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 
+
