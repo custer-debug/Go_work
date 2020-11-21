@@ -16,7 +16,7 @@ func main() {
 	app.Get("/login", iof.GetLogin)
 	app.Post("/login", iof.PostLogin)
 
-	app.Get("/welcome", GetWelcomeHandler)
+	app.Get("/profile", GetWelcomeHandler)
 
 	app.Get("/logout", iof.Logout)
 

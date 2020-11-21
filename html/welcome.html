@@ -6,53 +6,67 @@
         <title>Welcome</title>
         <link rel = "shortcut icon" href = "../StaticFiles/images/packy_ico.png" type = "image/png">
         <link href = "../StaticFiles/bootstrap/bootstrapCss/bootstrap.css" type="text/css" rel = "stylesheet">
-
+        
     </head>
 
-    <script>
-
-        function logout(){
-            location.replace("/logout");
-
-        }
-
-         if(document.cookie === ""){
-             location.replace("/login");
-         }
-
-    </script>
-    
     <body>
-       
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="#" style = "margin-left: 10px; margin-top: 5px">
-           <h5>
-           Packy
-           </h5>
-       </a>
       
-      <div class="collapse navbar-collapse" id="navbarText">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+          
+        <a class="navbar-brand" href="#" style = "margin-left: 10px; margin-top: 5px">
+            <h5 >
+              
+            Packy
+            </h5>
+        </a>
+      
+      <div class="collapse navbar-collapse " id="navbarText">
         <ul class="navbar-nav mr-auto">
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="#">Documentation</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Menu
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-white" href="/profile">Profile</a>
+              <a class="dropdown-item text-white" href="/sites">Sites</a>
+            
+            </div>
           </li>
         </ul>
-        <form action = "/settings">
-             <button class="btn btn-outline-light my-3 my-sm-0" style="margin-right: 10px" type="submit">Settings</button>
+
+        <form action = "/settings" class = "form-inline">
+              <button  class="btn btn-outline-info my-3 my-sm-0" style="margin-right: 10px" type="submit" >
+          <img src = "../StaticFiles/images/iconSettings.png" height = "25px" width = "25px">
+                Settings</button>
           </form>
           
-                 <input class="btn btn-danger my-sm-0" style="margin-right: 10px" value = "Logout" type="submit" onclick="logout()">
-          
+                <button class = "btn btn-danger" style = "margin-right:10px; height:42px" onclick="logout()"> 
+                <img src = "../StaticFiles/images/iconOut.png">  
+                  Logout
+                </button>
+                
       </div>
+      
     </nav>
         <div class = "container">
-            <label class = "h3">
-                 Hello, {{.Firstname}}
-        {{.Lastname}}!
-            </label>
-        </div>        
+
+            <div class="jumbotron">
+                <h1 class="display-4">Hello, {{.Firstname}} {{.Lastname}}</h1>
+                <p class="lead">Мы рады вас приветствовать на нашем сайте. 
+                    Сейчас здесь реализованы только основные функции, но мы работаем над новыми фичами.</p>
+                <hr class="my-4">
+                
+                <p class="lead">
+                  <a class="btn btn-outline-success btn-lg text-dark" href="#" role="button">Переход куда-нибудь</a>
+                </p>
+              </div>
+            
+        </div>   
+    </div>     
+    <script src = "../StaticFiles/JavaScript/welcome.js"></script>
         <script src = "../StaticFiles/bootstrap/bootstrapJs/bootstrap.js"> </script>
     </body>
 </html>
