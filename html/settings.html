@@ -39,14 +39,18 @@
       </div>
   </nav>
 
+
+
+
+  
 <div class = "container " style = "margin-top: 20px">
-      <ul class="nav nav-tabs " id="myTab" role="tablist" style = "margin-top: 20px">
+      <ul class="nav nav-tabs" id="myTab" role="tablist" style = "margin-top: 20px">
           <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" 
+              <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile"
               role="tab" aria-controls="profile" aria-selected="true">Profile</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link active" id="private-tab" data-toggle="tab" href="#private" 
+              <a class="nav-link " id="private-tab" data-toggle="tab" href="#private"
               role="tab" aria-controls="private" aria-selected="false">Private</a>
           </li>
           <li class="nav-item">
@@ -54,11 +58,13 @@
               role="tab" aria-controls="site" aria-selected="false">Sites</a>
           </li>
       </ul>
+    
 
 
       <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+          
+          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class = "bg-light">
               <label class="h6">Имя
                   <input type = "text" class = "form-control" style ="margin-top: 5px" value= "{{.Firstname}}" id = "firstname">
               </label><br>
@@ -100,16 +106,12 @@
                       </div>
                   </div>
               </div>
-
-
-
-
+            </div>
           </div>
 
-
-          <div class="tab-pane fade show active" id="private" role="tabpanel" aria-labelledby="private-tab">
+          <div class="tab-pane fade show " id="private" role="tabpanel" aria-labelledby="private-tab">
             <div class = "bg-light">
-              <form action="/welcome" class = "container" id = "form">
+              <form action="/profile" class = "container" id = "form">
                   <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label h2">Email</label>
                       <div class="col-sm-10">
@@ -118,7 +120,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-
+                    
 
                       <label for="inputPassword" class="col-sm-2 col-form-label h2">Password</label>
                       <div class="col-sm-3 card"  >
@@ -128,47 +130,47 @@
                                 
                             </li>
 
-
+                            
                             <li class="list-group-item">
-                                <input  type="password" class="form-control" id="inputPassword1"  placeholder="New password" style = "margin-top: 10px; width: 200px">
-                                <small id="passwordHelpInline " class="text-muted invisible">
-                                    Must be 8-20 characters long.
-                                </small>                   
-                                    <input  type="password" class="form-control" id="inputPassword2"  placeholder="New password" style = "width: 200px">
-                                <small id="passwordHelpInline " class="text-muted invisible">
-                                    Must be 8-20 characters long.
-                                </small>
-                                <input type = "button" id = "button" class="btn btn-outline-primary" value="Change password" style = "margin-bottom: 10px; margin-top: 10px" >
+                                <input  type="password" class="form-control" id="inputPassword1"  placeholder="New password" 
+                                style = "margin-top: 10px; width: 200px">
+                                
+                                    <input  type="password" class="form-control" id="inputPassword2"  placeholder="New password"
+                                     style = "width: 200px; margin-top: 10px">
+                                <input type = "button" id = "button" class="btn btn-outline-primary" value="Change password" 
+                                style = "margin-bottom: 10px; margin-top: 15px" >
 
                             </li>
                         </ul>
 
-
+                        
                       </div>
+    
+
+                    <div class="alert alert-danger alert-dismissible fade " id = "secondPass"
+                    style = "width: 400px; height: 60px; margin-left: 50px" role="alert">
+                    <strong id = "message"> 
+                        <div id = "var"> </div>
+                    </strong> 
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    </div>
+
                   </div>
 
               </form>
             </div>
           </div>
 
-
-
-
           <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
 
 
-
           </div>
-
-
-
-
-
       </div>
 
-
 </div>
-
 
     <script src = "../StaticFiles/JavaScript/settings.js"></script>
 

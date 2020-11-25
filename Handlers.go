@@ -4,7 +4,6 @@ import (
 	iof "custer-debug/in-out-function"
 	"database/sql"
 	json2 "encoding/json"
-	"errors"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"log"
@@ -46,7 +45,8 @@ func connectToDatabase() *sql.DB {
 }
 
 //Function for change profile information
-func changeUserData(b []byte) error {
+func changeUserData(b []byte) string {
+	fmt.Println("changeUserData")
 
 	type Tmp struct {
 		Firstname string `json:"firstname"`
@@ -75,14 +75,14 @@ func changeUserData(b []byte) error {
 	)
 	db.Close()
 	if err != nil {
-
-		return err
+		return "Trouble with DB"
 	}
 
-	return nil
+	return "OK"
 }
 
-func changePassword(b []byte) error {
+func changePassword(b []byte) string {
+	fmt.Println("changePassword")
 
 	type Tmp struct {
 		OldPassword  string `json:"oldPassword"`
@@ -98,10 +98,7 @@ func changePassword(b []byte) error {
 	fmt.Println(user.Password)
 
 	if tmp.OldPassword != user.Password {
-		return errors.New("Incorrect password")
-	}
-	if tmp.NewPassword != tmp.NewPassword1 {
-		return errors.New("Passwords do not match")
+		return "Incorrect password"
 	}
 
 	user.Password = tmp.NewPassword
@@ -114,25 +111,26 @@ func changePassword(b []byte) error {
 	)
 	db.Close()
 	if err != nil {
-		return err
+		return "Trouble with DB"
 	}
 
-	return nil
+	return "OK"
 }
 
 func HandlerPostSettings(ctx *fiber.Ctx) error {
 
-	var find = "oldPassword"
 	var data = string(ctx.Body())
-	println(strings.Contains(data, find))
-	if !strings.Contains(data, find) {
-		log.Println(changeUserData(ctx.Body()))
+	if strings.Contains(data, "firstname") {
 		iof.SetCookie(ctx)
+		ctx.SendString(changeUserData(ctx.Body()))
+
+	} else if strings.Contains(data, "oldPassword") {
+		ctx.SendString(changePassword(ctx.Body()))
 
 	} else {
-		log.Println(changePassword(ctx.Body()))
+		log.Println("Bad request")
 	}
-	return ctx.Redirect("/welcome")
+	return nil
 }
 
 func DeleteUser(ctx *fiber.Ctx) error {
