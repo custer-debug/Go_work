@@ -81,7 +81,20 @@ func changeUserData(b []byte) string {
 	return "OK"
 }
 
-func changePassword(b []byte) string {
+func msgForSite(status string, body string) []byte {
+	type Msg struct {
+		Status string
+		Body   string
+	}
+	var msg = new(Msg)
+	msg.Status = status
+	msg.Body = body
+
+	res, _ := json2.Marshal(msg)
+	return res
+}
+
+func changePassword(b []byte) []byte {
 	fmt.Println("changePassword")
 
 	type Tmp struct {
@@ -94,11 +107,9 @@ func changePassword(b []byte) string {
 	var tmp = new(Tmp)
 	var user = iof.GetUser()
 	json2.Unmarshal(b, tmp)
-	fmt.Println(tmp.OldPassword)
-	fmt.Println(user.Password)
 
 	if tmp.OldPassword != user.Password {
-		return "Incorrect password"
+		return msgForSite("Error", "Incorrect password")
 	}
 
 	user.Password = tmp.NewPassword
@@ -111,10 +122,10 @@ func changePassword(b []byte) string {
 	)
 	db.Close()
 	if err != nil {
-		return "Trouble with DB"
+		return msgForSite("Error", "Trouble with DB")
 	}
 
-	return "OK"
+	return msgForSite("OK", "Password changed successfully")
 }
 
 func HandlerPostSettings(ctx *fiber.Ctx) error {
@@ -125,7 +136,7 @@ func HandlerPostSettings(ctx *fiber.Ctx) error {
 		ctx.SendString(changeUserData(ctx.Body()))
 
 	} else if strings.Contains(data, "oldPassword") {
-		ctx.SendString(changePassword(ctx.Body()))
+		ctx.Send(changePassword(ctx.Body()))
 
 	} else {
 		log.Println("Bad request")

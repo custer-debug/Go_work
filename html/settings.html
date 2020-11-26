@@ -1,187 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel = "shortcut icon" href = "../StaticFiles/images/packy_ico.png" type = "image/png">
-    <link href = "../StaticFiles/bootstrap/bootstrapCss/bootstrap.css" type="text/css" rel = "stylesheet">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel = "shortcut icon" href = "../StaticFiles/images/packy_ico.png" type = "image/png">
+        <link href = "../StaticFiles/bootstrap/bootstrapCss/bootstrap.css" type="text/css" rel = "stylesheet">
 
-    <title>Settings</title>
-</head>
-
-
-<body>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/profile" style = "margin-left: 10px; margin-top: 5px">
-          <h5>
-              Packy
-          </h5>
-      </a>
-
-      <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
+        <title>Settings</title>
+    </head>
 
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Menu
-                </a>
-                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item text-white" href="/profile">Profile</a>
-                  <a class="dropdown-item text-white" href="/sites">Sites</a>
-                
-                </div>
-              </li>
-          </ul>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/profile" style = "margin-left: 10px; margin-top: 5px">
+            <h5>
+                Packy
+            </h5>
+        </a>
 
-          <button class="btn btn-danger my-sm-0" style="margin-right: 10px" type="button" onclick="logout()">
-              Logout
-          </button>
-      </div>
-  </nav>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
 
 
-
-
-  
-<div class = "container " style = "margin-top: 20px">
-      <ul class="nav nav-tabs" id="myTab" role="tablist" style = "margin-top: 20px">
-          <li class="nav-item">
-              <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile"
-              role="tab" aria-controls="profile" aria-selected="true">Profile</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link " id="private-tab" data-toggle="tab" href="#private"
-              role="tab" aria-controls="private" aria-selected="false">Private</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" id="site-tab" data-toggle="tab" href="#site" 
-              role="tab" aria-controls="site" aria-selected="false">Sites</a>
-          </li>
-      </ul>
-    
-
-
-      <div class="tab-content" id="myTabContent">
-          
-          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class = "bg-light">
-              <label class="h6">Имя
-                  <input type = "text" class = "form-control" style ="margin-top: 5px" value= "{{.Firstname}}" id = "firstname">
-              </label><br>
-              <label class="h6">Фамилия
-                  <input type = "text" class = "form-control" style ="margin-top: 5px" value="{{.Lastname}}" id = "lastname">
-              </label><br>
-              <label class="h6">Телефон
-                  <input type = "text" class = "form-control" style ="margin-top: 5px" value="{{.Phone}}" id = "phone">
-              </label><br>
-              <label class="h6">День рождения
-                  <input type = "date" class = "form-control" style ="margin-top: 5px" value="{{.Birthday}}" id = "birthday">
-              </label><br>
-              <input type = "button" class = "btn btn-primary" value="Change" onclick="createRequestProfile()">
-
-              <br>
-              <input class = "btn btn-outline-danger" value = "Delete account" type = "button"
-                     data-toggle="modal" data-target="#exampleModal"  style = "margin-top: 100px">
-
-
-
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Удаление страницы</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                              <h6>
-                                  Вы уверены что хотите удалить страницу?
-                              </h6>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-                              <button type="button" class="btn btn-outline-danger" onclick="deleteUser()">Yes</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane fade show " id="private" role="tabpanel" aria-labelledby="private-tab">
-            <div class = "bg-light">
-              <form action="/profile" class = "container" id = "form">
-                  <div class="form-group row">
-                      <label for="staticEmail" class="col-sm-2 col-form-label h2">Email</label>
-                      <div class="col-sm-10">
-                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{.Login}}">
-
-                      </div>
-                  </div>
-                  <div class="form-group row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                    </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-white" href="/profile">Profile</a>
+                    <a class="dropdown-item text-white" href="/sites">Sites</a>
                     
+                    </div>
+                </li>
+            </ul>
 
-                      <label for="inputPassword" class="col-sm-2 col-form-label h2">Password</label>
-                      <div class="col-sm-3 card"  >
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                 <input type="password" id="inputPassword" class = "form-control" placeholder="Password" style = "margin-top: 10px; width: 200px">
+            <button class="btn btn-danger my-sm-0" style="margin-right: 10px" type="button" onclick="logout()">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+
+
+
+    
+    <div class = "container " style = "margin-top: 20px">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style = "margin-top: 20px">
+            <li class="nav-item">
+                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile"
+                role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="private-tab" data-toggle="tab" href="#private"
+                role="tab" aria-controls="private" aria-selected="false">Private</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="site-tab" data-toggle="tab" href="#site" 
+                role="tab" aria-controls="site" aria-selected="false">Sites</a>
+            </li>
+        </ul>
+        
+
+
+                <div class="tab-content" id="myTabContent">
+                    
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    
+                        <div class = "bg-light">
+                         <div class = "row">
+                                <div class = "col">
+                                    <div class = "form-group " style = "margin-left:20px">
+
+                                    
+                                    <label class="lead" for = "firstname" style = "margin-top: 10px;">Имя </label>
+                                    <input type = "text" class = "form-control w-50 p-2" style ="margin-top: 5px;" value= "{{.Firstname}}" id = "firstname">
+
+                                    <label class="lead ">Фамилия</label>
+                                    <input type = "text" class = "form-control w-50 p-2" style ="margin-top: 5px; " value="{{.Lastname}}" id = "lastname">
                                 
-                            </li>
+                                    <label class="lead">Телефон</label>
+                                    <input type = "text" class = "form-control w-50 p-2" style ="margin-top: 5px" value="{{.Phone}}" id = "phone">
+
+                                    <label class="lead">День рождения</label>
+                                    <input type = "date" class = "form-control w-50 p-2" style ="margin-top: 5px" value="{{.Birthday}}" id = "birthday">
+
+                                    </div>
+                            </div>
+                           <div class = "col">
+                                <div class="alert w-75 alert-success alert-dismissible fade  "
+                                style = "margin-top: 10px;"   
+                                id = "ProfileAlert"
+                                role="alert">
+                                <h4 class="alert-heading" id = "successChangeProfile">Хорошая работа!</h4>
+                                <p>Данные профиля успешно изменены</p>
+                                
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+            
+                            </div>
+                           </div>
+
+                         </div>
+                         
+                    <input type = "button" class = "btn btn-primary" style = "margin-top: 20px;margin-bottom: 20px; margin-left:20px; width:100px"
+                        value="Change" onclick="createRequestProfile()">
+                    
+                <br>
+                <input class = "btn btn-outline-danger" value = "Delete account" type = "button"
+                        data-toggle="modal" data-target="#exampleModal"  style = "margin-top: 100px">
+
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Удаление страницы</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>
+                                    Вы уверены что хотите удалить страницу?
+                                </h6>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-outline-danger" onclick="deleteUser()">Yes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show " id="private" role="tabpanel" aria-labelledby="private-tab">
+                <div class = "bg-light">
+                <form action="/profile" class = "container" id = "form">
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label h2">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{.Login}}">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        
+                       
+                        <label for="inputPassword" class="col-sm-2 col-form-label h2">Password</label>
+                        <div class="col-sm-3 card"  style = "margin-bottom: 10px;">
+                            <form class="needs-validation" novalidate>
+
+
+                                        <input type="password" id="inputPassword" class = "form-control" placeholder="Password" style = "margin-top: 10px; width: 200px">
+                                                
+                                        <input  type="password" class="form-control" id="inputPassword1"  placeholder="New password" 
+                                        style = "margin-top: 10px; width: 200px">
+                                                                            
+                                        <input  type="password" class="form-control" id="inputPassword2"  placeholder="New password"
+                                        style = "width: 200px; margin-top: 10px">
+                                        
+
+                                        <input type = "button" id = "button" class="btn btn-outline-primary" value="Change password"                               
+                                        style = "margin-bottom: 10px; margin-top: 15px" >
+
+                            </form>
+
+                               
+                            
 
                             
-                            <li class="list-group-item">
-                                <input  type="password" class="form-control" id="inputPassword1"  placeholder="New password" 
-                                style = "margin-top: 10px; width: 200px">
-                                
-                                    <input  type="password" class="form-control" id="inputPassword2"  placeholder="New password"
-                                     style = "width: 200px; margin-top: 10px">
-                                <input type = "button" id = "button" class="btn btn-outline-primary" value="Change password" 
-                                style = "margin-bottom: 10px; margin-top: 15px" >
+                        </div>
+        
 
-                            </li>
-                        </ul>
+                        <div class="alert alert-danger alert-dismissible fade " id = "secondPass"
+                        style = "width: 400px; height: 60px; margin-left: 50px" role="alert">
+                        <strong id = "message"> 
+                            <div id = "alertDanger"> </div>
+                        </strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" onclick="location.reload()">&times;</span>
+                        </button>
 
-                        
-                      </div>
-    
-
-                    <div class="alert alert-danger alert-dismissible fade " id = "secondPass"
-                    style = "width: 400px; height: 60px; margin-left: 50px" role="alert">
-                    <strong id = "message"> 
-                        <div id = "var"> </div>
-                    </strong> 
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        </div>
 
                     </div>
 
-                  </div>
-
-              </form>
+                </form>
+                </div>
             </div>
-          </div>
 
-          <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
+            <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
+                
+
+            </div>
+        </div>
+
+    </div>
+    
 
 
-          </div>
-      </div>
-
-</div>
 
     <script src = "../StaticFiles/JavaScript/settings.js"></script>
 
-    <script src = "../StaticFiles/bootstrap/bootstrapJs/bootstrap.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
+        <script src = "../StaticFiles/bootstrap/bootstrapJs/bootstrap.js"></script>
+    </body>
+    </html>
