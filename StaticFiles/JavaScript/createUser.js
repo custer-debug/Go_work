@@ -1,10 +1,24 @@
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+
 function SendPostRequest(){
     let check = "Female"
     if(document.getElementById("Male").checked){
         check = "Male";
     }
 
-    console.log(check)
+    const email = document.getElementById("login");
+    
+
+    if(!validateEmail(email.value)){
+        email.className = "border border-danger rounded"
+        return
+    }
+    email.className = "border border-dark rounded"
 
     const l = document.getElementById("password").value
     const r = document.getElementById("secondPassword").value

@@ -1,6 +1,7 @@
 package createuser
 
 import (
+	"custer-debug/emailPkg"
 	sv "custer-debug/serverConst"
 	"database/sql"
 	"fmt"
@@ -11,6 +12,11 @@ func GetCreateHandler(ctx *fiber.Ctx) error {
 	fmt.Println("GetCreate")
 	return ctx.SendFile(sv.HtmlCreateUser)
 }
+
+
+
+
+
 
 func PostCreateHandler(ctx *fiber.Ctx) error {
 
@@ -26,7 +32,11 @@ func PostCreateHandler(ctx *fiber.Ctx) error {
 	db, _ := sql.Open(sv.DataBase, sv.DataBaseSource)
 	defer db.Close()
 
-	var _, err = db.Exec("insert into dataofusers(firstname, lastname, Birthday,Gender,Phone,login, password) "+
+
+
+
+	var _, err = db.Exec("insert into " +
+		"dataofusers(firstname, lastname, Birthday,Gender,Phone,login, password) "+
 		"values(?,?,?,?,?,?,?);",
 		u.Firstname,
 		u.Lastname,
@@ -36,11 +46,14 @@ func PostCreateHandler(ctx *fiber.Ctx) error {
 		u.Login,
 		u.Password,
 	)
+
 	if err != nil {
 		fmt.Println(err)
 		return err
 	}
 
+
+	emailPkg.SendEmailCreateUser(u.Login)
 	fmt.Println("Create User", u)
 	return ctx.Redirect(sv.UrlLogin)
 }

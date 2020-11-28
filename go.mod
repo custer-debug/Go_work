@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/andybalholm/brotli v1.0.1 // indirect
+	github.com/badoux/checkmail v1.2.1 // indirect
 	github.com/cosmtrek/air v1.21.2 // indirect
 	github.com/creack/pty v1.1.11 // indirect
 	github.com/fatih/color v1.10.0 // indirect
