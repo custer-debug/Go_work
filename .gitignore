@@ -17,6 +17,8 @@ tmp/build-errors.log
 *.ico
 *.png
 src
+test
+serverConst
 *.mod
 go.mod
 *.sum

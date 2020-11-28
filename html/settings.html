@@ -71,7 +71,6 @@
                                 <div class = "col">
                                     <div class = "form-group " style = "margin-left:20px">
 
-                                    
                                     <label class="lead" for = "firstname" style = "margin-top: 10px;">Имя </label>
                                     <input type = "text" class = "form-control w-50 p-2" style ="margin-top: 5px;" value= "{{.Firstname}}" id = "firstname">
 
@@ -87,15 +86,19 @@
                                     </div>
                             </div>
                            <div class = "col">
-                                <div class="alert w-75 alert-success alert-dismissible fade  "
+                                <div class="alert w-75 alert-success alert-dismissible fade"
                                 style = "margin-top: 10px;"   
                                 id = "ProfileAlert"
                                 role="alert">
-                                <h4 class="alert-heading" id = "successChangeProfile">Хорошая работа!</h4>
-                                <p>Данные профиля успешно изменены</p>
-                                
+                                <strong>
+                                    <div id = "msg"> </div>
+
+                                </strong>
+
+
+
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true" onclick = "location.reload();">&times;</span>
                                 </button>
             
                             </div>
@@ -103,8 +106,9 @@
 
                          </div>
                          
-                    <input type = "button" class = "btn btn-primary" style = "margin-top: 20px;margin-bottom: 20px; margin-left:20px; width:100px"
-                        value="Change" onclick="createRequestProfile()">
+                    <input type = "button" id = "btnProfileAlert" class = "btn btn-primary" 
+                    style = "margin-top: 20px;margin-bottom: 20px; margin-left:20px; width:100px"
+                        value="Change" >
                     
                 <br>
                 <input class = "btn btn-outline-danger" value = "Delete account" type = "button"
@@ -162,22 +166,19 @@
                                         style = "width: 200px; margin-top: 10px">
                                         
 
-                                        <input type = "button" id = "button" class="btn btn-outline-primary" value="Change password"                               
+                                        <input type = "button" id = "btnChangePassword" class="btn btn-outline-primary" 
+                                        value="Change password"                               
                                         style = "margin-bottom: 10px; margin-top: 15px" >
 
                             </form>
-
-                               
-                            
-
                             
                         </div>
         
 
-                        <div class="alert alert-danger alert-dismissible fade " id = "secondPass"
-                        style = "width: 400px; height: 60px; margin-left: 50px" role="alert">
+                        <div class="alert alert-danger alert-dismissible fade" id = "idAlertPas"
+                        style = "width: 400px; height: 80px; margin-left: 50px" role="alert">
                         <strong id = "message"> 
-                            <div id = "alertDanger"> </div>
+                            <div id = "msgAlert"></div>
                         </strong> 
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true" onclick="location.reload()">&times;</span>

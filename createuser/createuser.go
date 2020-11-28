@@ -1,27 +1,29 @@
 package createuser
 
 import (
-	iof "custer-debug/in-out-function"
+	sv "custer-debug/serverConst"
 	"database/sql"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"log"
 )
 
 func GetCreateHandler(ctx *fiber.Ctx) error {
 	fmt.Println("GetCreate")
-
-	return ctx.SendFile("./html/createUser.html")
+	return ctx.SendFile(sv.HtmlCreateUser)
 }
 
 func PostCreateHandler(ctx *fiber.Ctx) error {
+
 	fmt.Println("PostCreate")
-	var u = new(iof.User)
+	fmt.Println(string(ctx.Body()))
+	var u = new(sv.User)
 	if err := ctx.BodyParser(u); err != nil {
-		log.Println(err)
+		fmt.Println(err)
 		return err
 	}
-	db, _ := sql.Open("mysql", "root:Systemofadown2011@tcp(:8080)/user")
+	fmt.Println(u)
+
+	db, _ := sql.Open(sv.DataBase, sv.DataBaseSource)
 	defer db.Close()
 
 	var _, err = db.Exec("insert into dataofusers(firstname, lastname, Birthday,Gender,Phone,login, password) "+
@@ -35,10 +37,10 @@ func PostCreateHandler(ctx *fiber.Ctx) error {
 		u.Password,
 	)
 	if err != nil {
-		log.Println(err)
+		fmt.Println(err)
 		return err
 	}
 
 	fmt.Println("Create User", u)
-	return ctx.Redirect("/login")
+	return ctx.Redirect(sv.UrlLogin)
 }

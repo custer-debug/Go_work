@@ -2,6 +2,7 @@ package main
 
 import (
 	iof "custer-debug/in-out-function"
+	sv "custer-debug/serverConst"
 	"database/sql"
 	json2 "encoding/json"
 	"fmt"
@@ -10,19 +11,20 @@ import (
 	"strings"
 )
 
-func getCookies(ctx *fiber.Ctx) *iof.User {
-	var user = new(iof.User)
+func getCookies(ctx *fiber.Ctx) *sv.User {
+	var user = new(sv.User)
 	err := json2.Unmarshal([]byte(ctx.Cookies("user")), user)
 	if err != nil {
 		log.Println("Cookie is empty")
 
 	}
+
 	return user
 }
 
 func GetWelcomeHandler(ctx *fiber.Ctx) error {
 
-	if iof.GetUser().ID == 0 {
+	if sv.GetUser.ID == 0 {
 		fmt.Println("Id is zero")
 		var u = getCookies(ctx)
 		var db = connectToDatabase()
@@ -30,22 +32,35 @@ func GetWelcomeHandler(ctx *fiber.Ctx) error {
 		db.Close()
 	}
 
-	return ctx.Render("./html/welcome.html", iof.GetUser())
+	return ctx.Render(sv.HtmlProfile, sv.GetUser)
 }
 
 func HandlerGetSettings(ctx *fiber.Ctx) error {
 
-	return ctx.Render("./html/settings.html", iof.GetUser())
+	return ctx.Render(sv.HtmlSettings, sv.GetUser)
 }
 
 func connectToDatabase() *sql.DB {
-	db, _ := sql.Open("mysql",
-		"root:Systemofadown2011@tcp(:8080)/user")
+	db, _ := sql.Open(sv.DataBase,
+		sv.DataBaseSource)
 	return db
 }
 
+func msgForSite(status string, body string) []byte {
+	type Msg struct {
+		Status string
+		Body   string
+	}
+	var msg = new(Msg)
+	msg.Status = status
+	msg.Body = body
+
+	res, _ := json2.Marshal(msg)
+	return res
+}
+
 //Function for change profile information
-func changeUserData(b []byte) string {
+func changeUserData(b []byte) []byte {
 	fmt.Println("changeUserData")
 
 	type Tmp struct {
@@ -56,7 +71,7 @@ func changeUserData(b []byte) string {
 	}
 
 	var tmp = new(Tmp)
-	var user = iof.GetUser()
+	var user = sv.GetUser
 	json2.Unmarshal(b, tmp)
 	user.Firstname = tmp.Firstname
 	user.Lastname = tmp.Lastname
@@ -75,23 +90,10 @@ func changeUserData(b []byte) string {
 	)
 	db.Close()
 	if err != nil {
-		return "Trouble with DB"
+		return msgForSite("Error", "Trouble with DB")
 	}
 
-	return "OK"
-}
-
-func msgForSite(status string, body string) []byte {
-	type Msg struct {
-		Status string
-		Body   string
-	}
-	var msg = new(Msg)
-	msg.Status = status
-	msg.Body = body
-
-	res, _ := json2.Marshal(msg)
-	return res
+	return msgForSite("OK", "Profile data changed successfully")
 }
 
 func changePassword(b []byte) []byte {
@@ -105,7 +107,7 @@ func changePassword(b []byte) []byte {
 	fmt.Println(string(b))
 
 	var tmp = new(Tmp)
-	var user = iof.GetUser()
+	var user = sv.GetUser
 	json2.Unmarshal(b, tmp)
 
 	if tmp.OldPassword != user.Password {
@@ -133,7 +135,7 @@ func HandlerPostSettings(ctx *fiber.Ctx) error {
 	var data = string(ctx.Body())
 	if strings.Contains(data, "firstname") {
 		iof.SetCookie(ctx)
-		ctx.SendString(changeUserData(ctx.Body()))
+		ctx.Send(changeUserData(ctx.Body()))
 
 	} else if strings.Contains(data, "oldPassword") {
 		ctx.Send(changePassword(ctx.Body()))
@@ -155,5 +157,5 @@ func DeleteUser(ctx *fiber.Ctx) error {
 		return err
 	}
 
-	return ctx.Redirect("/logout")
+	return ctx.Redirect(sv.UrlLogin)
 }

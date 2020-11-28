@@ -10,8 +10,8 @@ function SendPostRequest(){
     const r = document.getElementById("secondPassword").value
     if(l === r){
         const toSend= {
-            name : document.getElementById("firstname").value,
-            surname : document.getElementById("lastname").value,
+            firstname : document.getElementById("firstname").value,
+            lastname : document.getElementById("lastname").value,
             birthday : document.getElementById("birthday").value,
             gender: check,
             phone : document.getElementById("phone").value,

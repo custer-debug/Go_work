@@ -1,6 +1,7 @@
 package in_out_function
 
 import (
+	sv "custer-debug/serverConst"
 	"database/sql"
 	json2 "encoding/json"
 	"fmt"
@@ -9,36 +10,15 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type User struct {
-	ID        int
-	Firstname string
-	Lastname  string
-	Birthday  string
-	Gender    string
-	Phone     string
-	Login     string
-	Password  string
-	WebSite   []string
-}
-
-var user = new(User)
-
-func GetUser() *User {
-	return user
-}
-
+//Function end session
 func Logout(ctx *fiber.Ctx) error {
 	ctx.ClearCookie()
 
-	return ctx.Redirect("/login")
+	return ctx.Redirect(sv.UrlLogin)
 
 }
 
-func GetLogin(c *fiber.Ctx) error {
-
-	return c.SendFile("./html/login.html")
-}
-
+//Function set cookie
 func SetCookie(c *fiber.Ctx) {
 
 	json, _ := json2.Marshal(struct {
@@ -46,9 +26,9 @@ func SetCookie(c *fiber.Ctx) {
 		FirstName string
 		LastName  string
 	}{
-		ID:        user.ID,
-		FirstName: user.Firstname,
-		LastName:  user.Lastname,
+		ID:        sv.GetUser.ID,
+		FirstName: sv.GetUser.Firstname,
+		LastName:  sv.GetUser.Lastname,
 	})
 
 	cookie := new(fiber.Cookie)
@@ -58,26 +38,27 @@ func SetCookie(c *fiber.Ctx) {
 	fmt.Println("Set Cookie")
 }
 
-//Getting general info about user
+//Getting user data using the first and last name
 func getUserData(l string, p string, db *sql.DB) error {
 
 	row := db.QueryRow("select * from dataofusers where login = ? and password = ?;",
 		l, p)
 
 	var err = row.Scan(
-		&user.ID,
-		&user.Firstname,
-		&user.Lastname,
-		&user.Login,
-		&user.Password,
-		&user.Gender,
-		&user.Birthday,
-		&user.Phone,
+		&sv.GetUser.ID,
+		&sv.GetUser.Firstname,
+		&sv.GetUser.Lastname,
+		&sv.GetUser.Login,
+		&sv.GetUser.Password,
+		&sv.GetUser.Gender,
+		&sv.GetUser.Birthday,
+		&sv.GetUser.Phone,
 	)
 	getWebSites(db)
 	return err
 }
 
+//Getting user data using the ID
 func GetUserDataID(ID int, db *sql.DB) error {
 	row := db.QueryRow("select * from dataofusers"+
 		" where ID = ?",
@@ -85,22 +66,23 @@ func GetUserDataID(ID int, db *sql.DB) error {
 	)
 
 	var err = row.Scan(
-		&user.ID,
-		&user.Firstname,
-		&user.Lastname,
-		&user.Login,
-		&user.Password,
-		&user.Gender,
-		&user.Birthday,
-		&user.Phone,
+		&sv.GetUser.ID,
+		&sv.GetUser.Firstname,
+		&sv.GetUser.Lastname,
+		&sv.GetUser.Login,
+		&sv.GetUser.Password,
+		&sv.GetUser.Gender,
+		&sv.GetUser.Birthday,
+		&sv.GetUser.Phone,
 	)
 	getWebSites(db)
 	return err
 }
 
+//This function is not yet used
 func getWebSites(db *sql.DB) {
 	rows, err := db.Query("SELECT Link from websites where websites.ID_user = ? ",
-		user.ID)
+		sv.GetUser.ID)
 
 	if err != nil {
 		log.Println(err)
@@ -114,10 +96,17 @@ func getWebSites(db *sql.DB) {
 			return
 		}
 
-		user.WebSite = append(user.WebSite, tmp)
+		sv.GetUser.WebSite = append(sv.GetUser.WebSite, tmp)
 	}
 }
 
+//Handler GET-request on url: "login"
+func GetLogin(c *fiber.Ctx) error {
+
+	return c.SendFile(sv.HtmlLogin)
+}
+
+//Handler POST-request on url: "login"
 func PostLogin(c *fiber.Ctx) error {
 
 	login := c.FormValue("login")
@@ -135,7 +124,7 @@ func PostLogin(c *fiber.Ctx) error {
 
 	} else {
 
-		fmt.Println("Welcome, " + user.Firstname + user.Lastname)
+		fmt.Println("Welcome, " + sv.GetUser.Firstname + sv.GetUser.Lastname)
 		SetCookie(c)
 		c.SendString("Success")
 	}

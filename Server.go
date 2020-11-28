@@ -3,6 +3,7 @@ package main
 import (
 	cruse "custer-debug/createuser"
 	iof "custer-debug/in-out-function"
+	"custer-debug/serverConst"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gofiber/fiber/v2"
 	"log"
@@ -13,18 +14,18 @@ func main() {
 
 	app.Static("/StaticFiles", "./StaticFiles")
 
-	app.Get("/login", iof.GetLogin)
-	app.Post("/login", iof.PostLogin)
+	app.Get(serverConst.UrlLogin, iof.GetLogin)
+	app.Post(serverConst.UrlLogin, iof.PostLogin)
 
-	app.Get("/profile", GetWelcomeHandler)
+	app.Get(serverConst.UrlProfile, GetWelcomeHandler)
 
 	app.Get("/logout", iof.Logout)
 
-	app.Get("/create", cruse.GetCreateHandler)
-	app.Post("/create", cruse.PostCreateHandler)
+	app.Get(serverConst.UrlCreate, cruse.GetCreateHandler)
+	app.Post(serverConst.UrlCreate, cruse.PostCreateHandler)
 
-	app.Get("/settings", HandlerGetSettings)
-	app.Post("/settings", HandlerPostSettings)
+	app.Get(serverConst.UrlSettings, HandlerGetSettings)
+	app.Post(serverConst.UrlSettings, HandlerPostSettings)
 
 	app.Get("/delete", DeleteUser)
 
