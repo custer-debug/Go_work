@@ -27,6 +27,7 @@ func main() {
 	app.Get(serverConst.UrlSettings, HandlerGetSettings)
 	app.Post(serverConst.UrlSettings, HandlerPostSettings)
 
+	app.Post(serverConst.UrlCheckCode, cruse.PostCheckCode)
 	app.Get("/delete", DeleteUser)
 
 	log.Fatal(app.Listen(":8800"))
